@@ -3,6 +3,7 @@
 #include "sys.h"
 #include "stdlib.h"
 
+#define LCD_ID  4551   //∂®“ÂIC
 #define red  0x001f
 #define black 0x0000
 #define white 0xffff
@@ -36,5 +37,6 @@ void LCD_WR_DATA(int da);
 void LCD_Writ_Bus(char data_1,char data_2);
 void LCD_Clear(void);
 void LCD_WR_DATA8(char VH,char VL);
-
+void SLEEPEXIT(void);
+void RAM_address(void);
 #endif
