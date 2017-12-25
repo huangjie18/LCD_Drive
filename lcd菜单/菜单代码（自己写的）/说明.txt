@@ -1,0 +1,71 @@
+第一：菜单的移植性
+
+
+_CONST_ KbdTabStruct KeyTab[]={
+//       |-----------> Index
+//       |  Up
+//       |  |  Down
+//       |  |  |  Left
+//       |  |  |  |  Right   --->功能函数
+//       |  |  |  |  |       |
+       { 0, 1, 2, 3, 4,(*DispMenuTop)},// 待机画面
+       { 1, 0, 0, 0, 0,(*DispMenuTopUp)},
+       { 2, 0, 0, 0, 0,(*DispMenuTopDown)},
+       { 3, 0, 0, 0, 0,(*DispMenuTopLeft)},
+       { 4, 0, 0, 0, 0,(*DispMenuTopRight)},
+
+       { 5, 6, 7, 8, 9,(*DispIcoMenuInit)}, //图标层菜单
+       { 6, 0, 0, 0, 0,(*DispIcoMenuUp)},   //
+       { 7, 0, 0, 0, 0,(*DispIcoMenuDown)}, //
+       { 8, 0, 0, 0, 0,(*DispIcoMenuLeft)}, //
+       { 9, 0, 0, 0, 0,(*DispIcoMenuRight)},//
+
+       {10,11,12,13,14,(*DispMenuFuncInit)}, //"功能"
+       {11, 0, 0, 0, 0,(*DispMenuFuncUp)},   //
+       {12, 0, 0, 0, 0,(*DispMenuFuncDown)}, //
+       {13, 0, 0, 0, 0,(*DispMenuFuncLeft)}, //
+       {14, 0, 0, 0, 0,(*DispMenuFuncRight)},//
+
+       {15,16,17,18,19,(*DispMenuParaInit)}, //"参数"
+       {16, 0, 0, 0, 0,(*DispMenuParaUp)},   //
+       {17, 0, 0, 0, 0,(*DispMenuParaDown)}, //
+       {18, 0, 0, 0, 0,(*DispMenuParaLeft)}, //
+       {19, 0, 0, 0, 0,(*DispMenuParaRight)},//
+
+       {20,21,22,23,24,(*DispMenuLanguageInit)}, //"语言"
+       {21, 0, 0, 0, 0,(*DispMenuLanguageUp)},   //
+       {22, 0, 0, 0, 0,(*DispMenuLanguageDown)}, //
+       {23, 0, 0, 0, 0,(*DispMenuLanguageLeft)}, //
+       {24, 0, 0, 0, 0,(*DispMenuLanguageRight)},//
+
+
+       {25,26,27,28,29,(*DispMenuMeasureInit)}, //"测量"
+       {26, 0, 0, 0, 0,(*DispMenuMeasureUp)},   //
+       {27, 0, 0, 0, 0,(*DispMenuMeasureDown)}, //
+       {28, 0, 0, 0, 0,(*DispMenuMeasureLeft)}, //
+       {29, 0, 0, 0, 0,(*DispMenuMeasureRight)},//
+#ifdef DynamicBar
+       {30,31,32,33,34,(*DispMenuDataInit)}, //"Data"
+       {31, 0, 0, 0, 0,(*DispMenuDataUp)},   //
+       {32, 0, 0, 0, 0,(*DispMenuDataDown)}, //
+       {33, 0, 0, 0, 0,(*DispMenuDataLeft)}, //
+       {34, 0, 0, 0, 0,(*DispMenuDataRight)},//
+#endif
+
+};
+
+这个是菜单的结构，在做程序的时间都一一定好那个项在那个位置，当移植到其它的项目上，这个菜单全部都得重做。
+
+第二：菜单的修改维护
+
+当菜单项要修改位置、菜单项功能和菜单扩展功能时，所需做的功夫比较大。当菜单项比较多，而且又有菜单扩展功能，修改起来有时很容易搞乱。
+
+第三：菜单项目的扩展功能（使用灵活性）
+
+举个例子：当前菜单项是“电机启动”窗口提示按某个键“启动电机”，当电机启动后菜单项中文显示为“电机停止” 窗口又提示按某个键“电机停止”。
+
+再有就是同一个菜单项要负责多个扩展功能
+
+举个例子：当前菜单项是“电机控制”再按确定后，弹出一个小窗口并列表显示数个电机的顺序，面板上的数字键都可单独控制一个确定的电机启动/运行。
+
+要在这个菜单内核上实现这些功能的时候，就显示有些力不从心了。

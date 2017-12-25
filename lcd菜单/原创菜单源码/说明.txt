@@ -1,0 +1,165 @@
+以下是我从项目里整理出来的原创菜单源码
+我的特点是以菜单节点为对象而组建的一个菜单体，每层菜单最大支持99菜单项
+
+//--------菜单节点结构体
+typedef struct _MenuNode
+{
+   unsigned int  MenuNodeID;
+   unsigned char *MenuString;
+   unsigned char MenuStatus;
+   struct _MenuNode *First_Node;
+   struct _MenuNode *Last_Node;
+   struct _MenuNode *Prev_Node;
+   struct _MenuNode *Next_Node;
+   void(*Action)(unsigned char in);
+}MenuNode;
+
+//--------菜单链表
+typedef struct _MenuList
+{
+   struct _MenuNode *Point_Node[MenuTotalNode];
+}MenuList;
+
+根椐菜单的编码结构可以随意修改和添加菜单项目，
+
+//--------当前菜单信息
+MenuNode MenuNode1 ={1,"1",0,(void*)0,(void*)0,(void*)0,(void*)0,MenuNode1Action};
+MenuNode MenuNode2 ={2,"2",0,(void*)0,(void*)0,(void*)0,(void*)0,MenuNode2Action};
+MenuNode MenuNode101={101,"101",0,(void*)0,(void*)0,(void*)0,(void*)0,MenuNode101Action};
+MenuNode MenuNode102={102,"102",0,(void*)0,(void*)0,(void*)0,(void*)0,MenuNode102Action};
+MenuNode MenuNode103={103,"103",0,(void*)0,(void*)0,(void*)0,(void*)0,MenuNode103Action};
+MenuNode MenuNode201={201,"201",0,(void*)0,(void*)0,(void*)0,(void*)0,MenuNode201Action};
+
+菜单的链表结构在菜单初始化完成
+
+//--------菜单初始化
+void MenuListInit(void)
+{
+   unsigned char i;
+   MenuNode *InitMenuNode;
+   CurrentMenuNode=&MenuNode1;
+   MenuTotalList.Point_Node[0]=&MenuNode1;
+   MenuTotalList.Point_Node[1]=&MenuNode2;
+   MenuTotalList.Point_Node[2]=&MenuNode101;
+   MenuTotalList.Point_Node[3]=&MenuNode102;
+   MenuTotalList.Point_Node[4]=&MenuNode103;
+   MenuTotalList.Point_Node[5]=&MenuNode201;
+   for(i=0;i<MenuTotalNode;i++)
+   {
+      InitMenuNode=MenuTotalList.Point_Node;
+      (*InitMenuNode).First_Node=SearchMenuNode((*InitMenuNode).MenuNodeID,firstnode);
+      (*InitMenuNode).Last_Node =SearchMenuNode((*InitMenuNode).MenuNodeID,lastnode);
+      (*InitMenuNode).Prev_Node =SearchMenuNode((*InitMenuNode).MenuNodeID,prevnode);
+      (*InitMenuNode).Next_Node =SearchMenuNode((*InitMenuNode).MenuNodeID,nextnode);
+   }
+}
+
+可以灵活添加和修改扩展功能
+
+void MenuNode101Action(unsigned char key)
+{
+   Lcd_Clr();
+   switch(key)
+   {
+      case key0code:
+      case key1code:
+      case key2code:
+      case key3code:
+      case key4code:
+      case key5code:
+      case key6code:
+      case key7code:
+      case key8code:
+      case key9code:if(num101<8){tab101[num101]=key;num101++;}break;
+      case key10code:if(num101>0){num101--;tab101[num101]=0;}break;
+      default:break;
+   }
+   LCD_Write_String(0,0,"101请输入:");
+   LCD_Write_Number(0,1,tab101,num101);
+}
+
+菜单内核调度代码在移植时不用修改
+
+//--------菜单显示
+void MenuShow(void)
+{
+   unsigned char i;
+   static MenuNode *ShowMenuNode;
+   switch(CurrentMenuStatus)
+   {
+      case menufunc:
+           Menu_LCD_Clr();
+           ShowMenuNode=SearchSomeOneMenuNode((*CurrentMenuNode).MenuNodeID-CurrentMenuCur);
+           Menu_LCD_Write_String(0,CurrentMenuCur,"->");
+           for(i=0;i<MaxScreenSize;i++)
+           {
+              Menu_LCD_Write_String(2,i,(*ShowMenuNode).MenuString);
+              if((*ShowMenuNode).Last_Node!=NULL)
+              {
+                 ShowMenuNode=(*ShowMenuNode).Last_Node;
+              }
+              else
+                break;
+           }
+           break;
+      case numberfunc:
+           break;
+      default:break;
+   }
+}
+
+//--------菜单索引操作
+void MenuFunctionKey(unsigned char key)
+{
+   MenuIntDisable();
+   switch(key)
+   {
+      case Key_First:
+           if((*CurrentMenuNode).First_Node!=NULL)
+           {
+             CurrentMenuNode=(*CurrentMenuNode).First_Node;
+             if(CurrentMenuCur>0)
+                CurrentMenuCur--;
+           }
+           break;
+      case Key_Last:
+           if((*CurrentMenuNode).Last_Node!=NULL)
+           {
+             CurrentMenuNode=(*CurrentMenuNode).Last_Node;
+             if(CurrentMenuCur<(MaxScreenSize-1))
+                CurrentMenuCur++;
+           }
+           break;
+      case Key_Prev:
+           if((*CurrentMenuNode).Prev_Node!=NULL)
+           {
+             CurrentMenuNode=(*CurrentMenuNode).Prev_Node;
+             MenuDeep--;
+             CurrentMenuCur=MenuCurStack[MenuDeep];
+           }
+           break;
+      case Key_Next:
+           if((*CurrentMenuNode).Next_Node!=NULL)
+           {
+             CurrentMenuNode=(*CurrentMenuNode).Next_Node;
+             MenuCurStack[MenuDeep]=CurrentMenuCur;
+             CurrentMenuCur=0;
+             MenuDeep++;
+           }
+           break;
+      default:break;
+   }
+   MenuIntEnable();
+}
+
+//--------菜单扩展操作功能
+void (*MenuNodeAction)(unsigned char key);
+
+//--------菜单按键功能, 扩展功能
+void MenuNumberKey(unsigned char key)
+{
+   MenuIntDisable();
+   MenuNodeAction=(*CurrentMenuNode).Action;
+   MenuIntEnable();
+   (*MenuNodeAction)(key);
+}
