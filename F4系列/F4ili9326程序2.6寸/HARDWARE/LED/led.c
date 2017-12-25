@@ -1,7 +1,7 @@
 #include "led.h"
 #include "stdlib.h"
 #include "delay.h"
-
+u16 LCD_id=0;
 /*
 文件说明：该LCD驱动适合正点原子F1和F4开发板使用
 文件使用：适合8线并口传输，只需要修改LCD_Init初始驱动
@@ -28,21 +28,26 @@ void LCD_Writ_Bus(char data_1, char data_2)  //并行数据写入函数
 
 	CS = 0;
 	WR = 1;
-	temp2 = (GPIOE->IDR & 0xff00);
+	
+	
 
 #if defined STM32F40_41xxx
-	GPIOE->BSRRH = temp2;  //对GPIOE全部输出为0
-	GPIOE->BSRRL = addr2;  //GPIOE输出数据
-	WR = 0;  //写操作使能
-	WR = 1;  //写操作失能
+//	temp2 = (GPIOE->IDR & 0xff00); 
+//	GPIOE->BSRRH = temp2;  //对GPIOE全部输出为0,使用这种可以防止改写不是数据位的IO
+//	GPIOE->BSRRL = addr2;  //GPIOE输出数据
+	WR = 0;  //写操作使能,MCU告诉LCD我要控制DB数据线了
+	GPIOE->ODR = addr2;
+	WR = 1;  //写操作失能，LCD开始把数据线的数据写进自己的内存
 	CS = 1;
 	
-	CS = 0;
+	CS = 0;  //对LCD使能
 	WR = 1;
-	temp3 = (GPIOE->IDR & 0xff00);
-	GPIOE->BSRRH = temp3;
-	GPIOE->BSRRL = addr3;
+	
+//	temp3 = (GPIOE->IDR & 0xff00); //此时WR不能等于0
+//	GPIOE->BSRRH = temp3;
+//	GPIOE->BSRRL = addr3;
 	WR = 0;
+	GPIOE->ODR = addr3;
 	WR = 1;
 	CS = 1;   //关闭片选使能
 
@@ -88,7 +93,77 @@ void LCD_WR_REG_DATA(int reg, int da)
 	LCD_WR_DATA(da);
 }
 
+void LCD_IN(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure;//重新定义一个结构体
 
+	//开启时钟线，stm32有，单片机没有
+#ifdef STM32F40_41xxx   //判断芯片类型
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB | RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOE, ENABLE);
+	//对结构体的变量进行初始化
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 |
+	                              GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
+	GPIO_Init(GPIOE, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
+
+	
+#elif defined  STM32F10X_HD
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOE, ENABLE);
+	//对结构体的变量进行初始化
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 |
+	                              GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOE, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
+
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10;
+	GPIO_Init(GPIOD, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
+
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
+	GPIO_Init(GPIOB, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
+#endif
+}
+
+void LCD_OUT(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure;//重新定义一个结构体
+
+	//开启时钟线，stm32有，单片机没有
+#ifdef STM32F40_41xxx   //判断芯片类型
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB | RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOE, ENABLE);
+	//对结构体的变量进行初始化
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 |
+	                              GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOE, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
+
+	
+#elif defined  STM32F10X_HD
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOE, ENABLE);
+	//对结构体的变量进行初始化
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 |
+	                              GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOE, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
+
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10;
+	GPIO_Init(GPIOD, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
+
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
+	GPIO_Init(GPIOB, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
+#endif
+	
+}
 /****************初始化命令*******************/
 void LCD_Init()
 {
@@ -131,7 +206,7 @@ void LCD_Init()
 	GPIO_Init(GPIOB, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
 #endif
 	RST = 0;
-	delay_ms(20);
+	delay_ms(100);
 	RST = 1;
 	delay_ms(10);
 
@@ -210,39 +285,39 @@ void LCD_Init()
 	}
 	else if (LCD_ID == 4551)
 	{
-		LCD_WR_REG_DATA(0x15, 0x7050);							 
-		LCD_WR_REG_DATA(0x11, 0x0112);	   //0x0110
-		LCD_WR_REG_DATA(0x10, 0x3668);	 
-		LCD_WR_REG_DATA(0x12, 0x0002);	 
-		LCD_WR_REG_DATA(0x13, 0x0D2B);	  
+		LCD_WR_REG_DATA(0x15, 0x0030);							 
+		LCD_WR_REG_DATA(0x11, 0x0010);	   //0x0110
+		LCD_WR_REG_DATA(0x10, 0x3628);	 
+		LCD_WR_REG_DATA(0x12, 0x0005);	 
+		LCD_WR_REG_DATA(0x13, 0x0E40);	  
 		delay_ms(40); 
-		LCD_WR_REG_DATA(0x12, 0x0012); //0x0016		 
+		LCD_WR_REG_DATA(0x12, 0x0015); //0x0016		 
 		delay_ms(40);				
-		LCD_WR_REG_DATA(0x10, 0x3660);	//0x3620  //0x3640	  
-		LCD_WR_REG_DATA(0x13, 0x2D2B);		//0x2D24  0x2C2f
+		LCD_WR_REG_DATA(0x10, 0x3620);	//0x3620  //0x3640	  
+		LCD_WR_REG_DATA(0x13, 0x2E40);		//0x2D24  0x2C2f
 		delay_ms(20); 
 		LCD_WR_REG_DATA(0x30, 0x0007);	
-		LCD_WR_REG_DATA(0x31, 0x0502);		
-		LCD_WR_REG_DATA(0x32, 0x0307);
-		LCD_WR_REG_DATA(0x33, 0x0305);
-		LCD_WR_REG_DATA(0x34, 0x0004);				
-		LCD_WR_REG_DATA(0x35, 0x0401);		
+		LCD_WR_REG_DATA(0x31, 0x0602);		
+		LCD_WR_REG_DATA(0x32, 0x0106);
+		LCD_WR_REG_DATA(0x33, 0x0405);
+		LCD_WR_REG_DATA(0x34, 0x0203);				
+		LCD_WR_REG_DATA(0x35, 0x0602);		
 		LCD_WR_REG_DATA(0x36, 0x0007);		
-		LCD_WR_REG_DATA(0x37, 0x0603);	
-		LCD_WR_REG_DATA(0x38, 0x0E1E);		
-		LCD_WR_REG_DATA(0x39, 0x0E1E);
+		LCD_WR_REG_DATA(0x37, 0x0504);	
+		LCD_WR_REG_DATA(0x38, 0x0809);		
+		LCD_WR_REG_DATA(0x39, 0x0809);
 		delay_ms(20);
 		LCD_WR_REG_DATA(0x01, 0x0100);	   
 		LCD_WR_REG_DATA(0x02, 0x0300);
 		LCD_WR_REG_DATA(0x03, 0x1030);
-		LCD_WR_REG_DATA(0x08, 0x0206);	   
+		LCD_WR_REG_DATA(0x08, 0x0808);	   
 		LCD_WR_REG_DATA(0x0A, 0x0008);	
 		LCD_WR_REG_DATA(0x60, 0x3100);		
 		LCD_WR_REG_DATA(0x61, 0x0001);		
-		LCD_WR_REG_DATA(0x90, 0x0046); //0x003c(60)//0x0044(68)  //0x0058(90)
+		LCD_WR_REG_DATA(0x90, 0x0054); //0x003c(60)//0x0044(68)  //0x0058(90)
 		LCD_WR_REG_DATA(0x92, 0x010F);
-		LCD_WR_REG_DATA(0x93, 0x0701);
-		LCD_WR_REG_DATA(0x9A, 0x0007);
+		LCD_WR_REG_DATA(0x93, 0x0501);
+		LCD_WR_REG_DATA(0x9A, 0x0009);
 		LCD_WR_REG_DATA(0xA3, 0x0010);
 		LCD_WR_REG_DATA(0x07, 0x0001);
 		LCD_WR_REG_DATA(0x07, 0x0021);
@@ -277,7 +352,7 @@ void LCD_Init()
 
 
 	//--------------- Power control 1~6 ---------------//
-					LCD_WR_REG_DATA(0x0100, 0x17B0); 
+		LCD_WR_REG_DATA(0x0100, 0x17B0); 
 		LCD_WR_REG_DATA(0x0101, 0x0147);
 		LCD_WR_REG_DATA(0x0102, 0x0138);
 
@@ -361,6 +436,7 @@ void LCD_Clear()
 		LCD_WR_REG_DATA(0x0200, 0x0000);	//X_Start);	//x addres
 
 		LCD_WR_REG(0x0202);
+		
 	}
 	else if (LCD_ID == 9225)
 	{
@@ -421,4 +497,49 @@ void SLEEPEXIT(void)
 	LCD_WR_REG_DATA(0x07, 0x0033);
 	LCD_WR_REG_DATA(0x07, 0x0133);
 
+}
+
+void SLEEPON(void)
+{
+
+    LCD_WR_REG_DATA(0x07, 0x0032);
+    delay_ms(20);
+    LCD_WR_REG_DATA(0x07, 0x0022);
+    delay_ms(20);
+    LCD_WR_REG_DATA(0x07, 0x0002);
+    delay_ms(20);
+    LCD_WR_REG_DATA(0x07, 0x0000);
+    delay_ms(10);
+    LCD_WR_REG_DATA(0x17, 0x0001);
+    LCD_WR_REG_DATA(0x13, 0x0000);
+    LCD_WR_REG_DATA(0x12, 0x0000);
+    LCD_WR_REG_DATA(0x10, 0x0008);
+    delay_ms(10);
+    LCD_WR_REG_DATA(0x10, 0x000A);
+
+}
+
+void LCD_Read(void)
+{
+	u16 temp;
+	CS = 0;
+	RS = 0;
+	WR = 1;
+	GPIOE->ODR = 0;
+	WR = 0;
+	WR = 1;
+	RS = 1;
+	LCD_IN();  //设置引脚为输入
+	RD = 0;
+	delay_us(5);
+	RD = 1;
+	LCD_id = GPIOE->IDR;
+	temp = LCD_id &0xff00; 
+	RD = 0;
+	LCD_id = GPIOE->IDR;
+	RD = 1;
+	temp |= (LCD_id >> 8);
+	LCD_id = temp;
+	LCD_OUT(); //设置引脚为输出
+	CS = 1;
 }

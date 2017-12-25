@@ -3,12 +3,14 @@
 #include "sys.h"
 #include "stdlib.h"
 
-#define LCD_ID  4551   //定义IC
+#define LCD_ID  5420   //定义IC9326,4551,5420
 #define red  0x001f
 #define black 0x0000
 #define white 0xffff
 #define blue  0x07e0
 #define green 0xf800
+
+
 
 
 #define RST PBout(15)
@@ -38,5 +40,6 @@ void LCD_Writ_Bus(char data_1,char data_2);
 void LCD_Clear(void);
 void LCD_WR_DATA8(char VH,char VL);
 void SLEEPEXIT(void);
-void RAM_address(void);
+void SLEEPON(void);
+void LCD_Read(void); //读
 #endif
