@@ -1,0 +1,11 @@
+..\obj\radio_setgroupid.o: ..\GUI\Widget\RADIO_SetGroupId.c
+..\obj\radio_setgroupid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\radio_setgroupid.o: ..\GUI\Widget\RADIO.h
+..\obj\radio_setgroupid.o: ..\GUI\WM\WM.h
+..\obj\radio_setgroupid.o: ..\GUI\Core\GUI_ConfDefaults.h
+..\obj\radio_setgroupid.o: ..\Config\GUIConf.h
+..\obj\radio_setgroupid.o: ..\GUI\Core\GUIType.h
+..\obj\radio_setgroupid.o: ..\GUI\Core\LCD.h
+..\obj\radio_setgroupid.o: ..\GUI\WM\WM_GUI.h
+..\obj\radio_setgroupid.o: ..\GUI\Widget\DIALOG_Intern.h
+..\obj\radio_setgroupid.o: ..\GUI\Widget\RADIO_Private.h

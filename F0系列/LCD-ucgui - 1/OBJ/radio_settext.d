@@ -1,0 +1,9 @@
+..\obj\radio_settext.o: ..\GUI\Widget\RADIO_SetText.c
+..\obj\radio_settext.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\radio_settext.o: ..\GUI\Widget\RADIO_Private.h
+..\obj\radio_settext.o: ..\GUI\WM\WM.h
+..\obj\radio_settext.o: ..\GUI\Core\GUI_ConfDefaults.h
+..\obj\radio_settext.o: ..\Config\GUIConf.h
+..\obj\radio_settext.o: ..\GUI\Core\GUIType.h
+..\obj\radio_settext.o: ..\GUI\Core\LCD.h
+..\obj\radio_settext.o: ..\GUI\WM\WM_GUI.h

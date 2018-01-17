@@ -1,0 +1,10 @@
+..\obj\edit_setpfaddkeyex.o: ..\GUI\Widget\EDIT_SetpfAddKeyEx.c
+..\obj\edit_setpfaddkeyex.o: ..\GUI\Widget\EDIT.h
+..\obj\edit_setpfaddkeyex.o: ..\GUI\WM\WM.h
+..\obj\edit_setpfaddkeyex.o: ..\GUI\Core\GUI_ConfDefaults.h
+..\obj\edit_setpfaddkeyex.o: ..\Config\GUIConf.h
+..\obj\edit_setpfaddkeyex.o: ..\GUI\Core\GUIType.h
+..\obj\edit_setpfaddkeyex.o: ..\GUI\Core\LCD.h
+..\obj\edit_setpfaddkeyex.o: ..\GUI\WM\WM_GUI.h
+..\obj\edit_setpfaddkeyex.o: ..\GUI\Widget\DIALOG_Intern.h
+..\obj\edit_setpfaddkeyex.o: ..\GUI\Widget\EDIT_Private.h

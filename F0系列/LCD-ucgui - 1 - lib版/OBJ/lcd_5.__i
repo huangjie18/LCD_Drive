@@ -1,0 +1,6 @@
+-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\Config -I..\GUI\AntiAlias -I..\GUI\ConvertColor -I..\GUI\ConvertMono -I..\GUI\Core -I..\GUI\Font -I..\GUI\LCDDriver -I..\GUI\MemDev -I..\GUI\MultiLayer -I..\GUI\Widget -I..\GUI\WM
+-I E:\STM32F0¿ª·¢\LCD-ucgui\USER\RTE
+-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0
+-I C:\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="514" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK
+-o ..\obj\lcd_5.o --omf_browse ..\obj\lcd_5.crf --depend ..\obj\lcd_5.d "..\GUI\Core\LCD.c"

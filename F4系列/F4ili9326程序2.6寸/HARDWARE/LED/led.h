@@ -3,7 +3,7 @@
 #include "sys.h"
 #include "stdlib.h"
 
-#define LCD_ID  5420   //定义IC9326,4551,5420
+//#define LCD_ID  9326  //定义IC9326,4551,5420
 #define red  0x001f
 #define black 0x0000
 #define white 0xffff
@@ -32,12 +32,12 @@
 #define LCD_RS  RS   //命令或数据，0：命令；1：数据；
 
 /*****************函数声名***********************************/
-void LCD_Init(void);
+void LCD_Init(u16 LCD_ID);
 void LCD_WR_REG_DATA(int reg,int da);
 void LCD_WR_REG(int reg);
 void LCD_WR_DATA(int da);
 void LCD_Writ_Bus(char data_1,char data_2);
-void LCD_Clear(void);
+void LCD_Clear(u16 LCD_ID);
 void LCD_WR_DATA8(char VH,char VL);
 void SLEEPEXIT(void);
 void SLEEPON(void);

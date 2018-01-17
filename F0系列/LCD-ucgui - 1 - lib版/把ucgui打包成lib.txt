@@ -1,0 +1,7 @@
+1.首先打开移植好的ucgui程序
+2.然后打开option of Target的OUTPUT，选择create Library
+3.进行编译
+4.会在HEX文件夹中产生一个lib文件，然后再把OUTPUT设置为create Executable
+5.新建一个文件夹把lib添加进来，这个时候可以删除GUI的.c文件，但不能删掉.h文件
+6.把所有.h文件放在一个文件夹中，添加该文件夹作为头文件包含路径
+7.再次编译可以了

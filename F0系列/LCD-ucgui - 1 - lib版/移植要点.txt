@@ -1,0 +1,5 @@
+1.修改GUIConf.h
+2.修改LCDConf.h
+3.修改LCDDummy.c
+
+要移植Config文件夹和GUI文件夹和GUI_X.c文件

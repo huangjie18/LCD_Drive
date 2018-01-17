@@ -32,9 +32,6 @@ void LCD_Writ_Bus(char data_1, char data_2)  //并行数据写入函数
 	
 
 #if defined STM32F40_41xxx
-//	temp2 = (GPIOE->IDR & 0xff00); 
-//	GPIOE->BSRRH = temp2;  //对GPIOE全部输出为0,使用这种可以防止改写不是数据位的IO
-//	GPIOE->BSRRL = addr2;  //GPIOE输出数据
 	WR = 0;  //写操作使能,MCU告诉LCD我要控制DB数据线了
 	GPIOE->ODR = addr2;
 	WR = 1;  //写操作失能，LCD开始把数据线的数据写进自己的内存
@@ -43,9 +40,7 @@ void LCD_Writ_Bus(char data_1, char data_2)  //并行数据写入函数
 	CS = 0;  //对LCD使能
 	WR = 1;
 	
-//	temp3 = (GPIOE->IDR & 0xff00); //此时WR不能等于0
-//	GPIOE->BSRRH = temp3;
-//	GPIOE->BSRRL = addr3;
+
 	WR = 0;
 	GPIOE->ODR = addr3;
 	WR = 1;
@@ -165,7 +160,7 @@ void LCD_OUT(void)
 	
 }
 /****************初始化命令*******************/
-void LCD_Init()
+void LCD_Init(u16 LCD_ID)
 {
 
 	GPIO_InitTypeDef GPIO_InitStructure;//重新定义一个结构体
@@ -423,7 +418,7 @@ void LCD_Init()
 
 /*************************三色函数**********************************************/
 //9225是特殊的，需要用这个
-void LCD_Clear()
+void LCD_Clear(u16 LCD_ID)
 {
 	u16 i, j;
 	if(LCD_ID == 5420)

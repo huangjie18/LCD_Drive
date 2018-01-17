@@ -1,0 +1,115 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.15
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: huangjie18 Microsoft, Microsoft, LIC=GE72Z-J1B51-HP4ZN-YB5S8-LD2AH-93K8B
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.15.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 2 (build 169)
+Assembler:       Armasm.exe V5.05 update 2 (build 169)
+Linker/Locator:  ArmLink.exe V5.05 update 2 (build 169)
+Library Manager: ArmAr.exe V5.05 update 2 (build 169)
+Hex Converter:   FromElf.exe V5.05 update 2 (build 169)
+CPU DLL:         SARMCM3.DLL V5.15.0
+Dialog DLL:      DARMCM1.DLL V1.12.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.15.0_KEIL
+Dialog DLL:      TARMCM1.DLL V1.9.0.0
+ 
+<h2>Project:</h2>
+E:\STM32F0¿ª·¢\LCD - 5 - 2\USER\LCD.uvprojx
+Project File Date:  11/13/2017
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'LCD'
+compiling main.c...
+..\HARDWARE\TIMER\timer.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c(47): warning:  #550-D: variable "event_t" was set but never used
+        Event_t event_t;  //¶¨???Â¼?????
+main.c: 2 warnings, 0 errors
+compiling stm32f0xx_it.c...
+..\HARDWARE\TIMER\timer.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+stm32f0xx_it.c: 1 warning, 0 errors
+compiling system_stm32f0xx.c...
+assembling startup_stm32f030.s...
+compiling stm32f0xx_gpio.c...
+compiling stm32f0xx_rcc.c...
+compiling stm32f0xx_misc.c...
+compiling stm32f0xx_flash.c...
+compiling stm32f0xx_tim.c...
+compiling delay.c...
+compiling sys.c...
+compiling lcd.c...
+..\HARDWARE\LCD\lcd.c(28): warning:  #177-D: variable "temp" was declared but never referenced
+        u8 i,addr2 = 0,addr3,temp;
+..\HARDWARE\LCD\lcd.c(353): warning:  #69-D: integer conversion resulted in truncation
+                        if(temp&0x01) LCD_WR_data(
+ontcolor>>8,
+ontcolor);
+..\HARDWARE\LCD\lcd.c: 2 warnings, 0 errors
+compiling DISPLAY_TFT.c...
+..\HARDWARE\LCD\DISPLAY_TFT.c(491): warning:  #177-D: variable "num_b" was declared but never referenced
+        u8 num_b;
+..\HARDWARE\LCD\DISPLAY_TFT.c(573): warning:  #1-D: last line of file ends without a newline
+  }
+..\HARDWARE\LCD\DISPLAY_TFT.c: 2 warnings, 0 errors
+compiling lcdfont.c...
+compiling key.c...
+compiling timer.c...
+..\HARDWARE\TIMER\timer.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\TIMER\timer.c(34): warning:  #1-D: last line of file ends without a newline
+  }
+..\HARDWARE\TIMER\timer.c: 2 warnings, 0 errors
+compiling flash.c...
+compiling mic_page2.c...
+compiling mic_page2_1.c...
+..\PRESEN\PAGE\mic_page2_1.c(573): warning:  #1-D: last line of file ends without a newline
+  }
+..\PRESEN\PAGE\mic_page2_1.c: 1 warning, 0 errors
+compiling reverb.c...
+..\PRESEN\REVERB\reverb.c(18): warning:  #177-D: variable "MIC_Options_flag" was declared but never referenced
+  static u8 MIC_Options_flag=0;
+..\PRESEN\REVERB\reverb.c: 1 warning, 0 errors
+compiling state.c...
+..\HARDWARE\TIMER\timer.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\PRESEN\state\state.c(59): warning:  #188-D: enumerated type mixed with another type
+        {0,          volume_stae,volume_stae,Interface_1,Interface_1,Interface_2,Interface_1,          0},  //Interface_1×´Ì¬
+..\PRESEN\state\state.c(59): warning:  #188-D: enumerated type mixed with another type
+        {0,          volume_stae,volume_stae,Interface_1,Interface_1,Interface_2,Interface_1,          0},  //Interface_1×´Ì¬
+..\PRESEN\state\state.c(60): warning:  #188-D: enumerated type mixed with another type
+        {0,          volume_stae,volume_stae,Interface_2,Interface_2,Interface_3,Interface_1,          0},  //Interface_2×´Ì¬
+..\PRESEN\state\state.c(60): warning:  #188-D: enumerated type mixed with another type
+        {0,          volume_stae,volume_stae,Interface_2,Interface_2,Interface_3,Interface_1,          0},  //Interface_2×´Ì¬
+..\PRESEN\state\state.c(61): warning:  #188-D: enumerated type mixed with another type
+        {0,          volume_stae,volume_stae,Interface_3,Interface_3,Interface_1,Interface_2,          0},  //Interface_3×´Ì¬
+..\PRESEN\state\state.c(61): warning:  #188-D: enumerated type mixed with another type
+        {0,          volume_stae,volume_stae,Interface_3,Interface_3,Interface_1,Interface_2,          0},  //Interface_3×´Ì¬
+..\PRESEN\state\state.c(62): warning:  #188-D: enumerated type mixed with another type
+        {0,          volume_stae,volume_stae,volume_stae,volume_stae,   NB_STATE,   NB_STATE,          0},  //volume_stae×´Ì¬
+..\PRESEN\state\state.c(62): warning:  #188-D: enumerated type mixed with another type
+        {0,          volume_stae,volume_stae,volume_stae,volume_stae,   NB_STATE,   NB_STATE,          0},  //volume_stae×´Ì¬
+..\PRESEN\state\state.c(184): warning:  #1-D: last line of file ends without a newline
+  }
+..\PRESEN\state\state.c: 10 warnings, 0 errors
+linking...
+Program Size: Code=14660 RO-data=4776 RW-data=348 ZI-data=1636  
+FromELF: creating hex file...
+"..\OBJ\LCD.axf" - 0 Error(s), 21 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  E:\STM32F0¿ª·¢\LCD - 5 - 2\USER\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+</pre>
+</body>
+</html>
