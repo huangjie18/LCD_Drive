@@ -14,7 +14,7 @@
         <TargetCommonOption>
           <Device>STM32F103ZE</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F1xx_DFP.1.0.5</PackID>
+          <PackID>Keil.STM32F1xx_DFP.2.2.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IROM(0x08000000,0x80000) IRAM(0x20000000,0x10000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LED</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LED;..\HARDWARE\REMOTE;..\HARDWARE\EXTI;..\HARDWARE\TIME</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -437,6 +437,21 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\LED\led.c</FilePath>
             </File>
+            <File>
+              <FileName>remote.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\REMOTE\remote.c</FilePath>
+            </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\EXTI\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>time.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\TIME\time.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -501,6 +516,16 @@
               <FileName>stm32f10x_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\STM32F10x_FWLib\src\stm32f10x_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F10x_FWLib\src\stm32f10x_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F10x_FWLib\src\stm32f10x_tim.c</FilePath>
             </File>
           </Files>
         </Group>

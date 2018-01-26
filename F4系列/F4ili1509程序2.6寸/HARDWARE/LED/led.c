@@ -67,7 +67,29 @@ void LCD_Writ_Bus(char data_1,char data_2)
 {
 	u16 i,temp1,temp2;
 	CS = 0;
+	delay_ms(1);
 	WR = 1;
+	for(i=0;i<8;i++)
+	{
+		temp1 = (data_1>>i)&1;
+		switch(i)
+		{
+			case 0: DB0 = temp1;break;
+			case 1: DB1 = temp1;break;
+			case 2: DB2 = temp1;break;
+			case 3: DB3 = temp1;break;
+			case 4: DB4 = temp1;break;
+			case 5: DB5 = temp1;break;
+			case 6: DB6 = temp1;break;
+			case 7: DB7 = temp1;break;
+		}
+		delay_ms(1);
+	}
+	
+	WR = 0;
+	delay_ms(1);
+	WR = 1;
+	delay_ms(1);
 	for(i=0;i<8;i++)
 	{
 		temp1 = (data_2>>i)&1;
@@ -81,31 +103,16 @@ void LCD_Writ_Bus(char data_1,char data_2)
 			case 5: DB5 = temp1;break;
 			case 6: DB6 = temp1;break;
 			case 7: DB7 = temp1;break;
+			
 		}
-	}
-	
-	WR = 0;
-
-	WR = 1;
-	
-	for(i=0;i<8;i++)
-	{
-		temp1 = (data_2>>i)&1;
-		switch(i)
-		{
-			case 0: DB0 = temp1;break;
-			case 1: DB1 = temp1;break;
-			case 2: DB2 = temp1;break;
-			case 3: DB3 = temp1;break;
-			case 4: DB4 = temp1;break;
-			case 5: DB5 = temp1;break;
-			case 6: DB6 = temp1;break;
-			case 7: DB7 = temp1;break;
-		}
+		delay_ms(1);
 	}
 	WR = 0;
-
+	delay_ms(1);
 	WR = 1;
+	delay_ms(1);
+	CS = 1;
+	delay_ms(1);
 }
 void LCD_WR_DATA8(char VH, char VL) //发送数据-8位参数
 {
@@ -139,14 +146,13 @@ void LCD_Init()
 	GPIO_InitTypeDef GPIO_InitStructure;//重新定义一个结构体
 
 	//开启时钟线，stm32有，单片机没有
-#ifdef STM32F40_41xxx   //判断芯片类型
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB | RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOE, ENABLE);
 	//对结构体的变量进行初始化
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 |
 	                              GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOE, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
 
@@ -156,25 +162,9 @@ void LCD_Init()
 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
 	GPIO_Init(GPIOB, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
-#elif defined  STM32F10X_HD
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOE, ENABLE);
-	//对结构体的变量进行初始化
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12 |
-	                              GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOE, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
 
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10;
-	GPIO_Init(GPIOD, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
-
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
-	GPIO_Init(GPIOB, &GPIO_InitStructure); //把结构体的成员变量赋给对应寄存器
-#endif
 	RST = 0;
-	delay_ms(20);
+	delay_ms(100);
 	RST = 1;
 	delay_ms(10);
 
