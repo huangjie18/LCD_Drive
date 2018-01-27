@@ -150,3 +150,20 @@ void myfree(void *ptr)
 	offset = (32)ptr - (u32)mem1base; //得到偏移地址
 	my_mem_free(offset);
 }
+/**
+ * [my_mem_perused description]
+ * 根据内存管理表来计算
+ */
+u8 my_mem_perused(void)
+{
+	u32 used = 0;
+	u32 i;
+	for (i = 0; i < MEM1_ALLOC_TABLE_SIZE; i++)
+	{
+		if (mem1mapbase[i])
+		{
+			used++;
+		}
+	}
+	return (used * 100) / MEM1_ALLOC_TABLE_SIZE;
+}
