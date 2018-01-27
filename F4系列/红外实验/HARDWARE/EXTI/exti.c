@@ -2,7 +2,7 @@
 #include "delay.h"
 u8 irflag = 0;  //红外接收标志，收到一帧正确数据后置1
 unsigned char ircode[4];  //红外代码接收缓冲区
-
+u16 count_ir=0;  //重复接收次数
 //外部中断0服务程序
 void EXTI0_IRQHandler(void)
 {
@@ -48,7 +48,7 @@ void EXTI4_IRQHandler(void)
 
 
 
-
+//红外测试数据
 static unsigned int GetLowTime(void)
 {
 	TIM3->CNT = 0;
@@ -102,8 +102,13 @@ void EXTI9_5_IRQHandler(void)
 	time = GetHighTime();
 	if((time<400)||(time>500))
 	{
+		if((time>220)&&(time<230))  //重复码
+		{
+			irflag = 1; 
+		}
 		EXTI_ClearITPendingBit(EXTI_Line8);
 		return;
+
 	}
 	
 	//接收并判定后续的4字节数据
@@ -136,5 +141,6 @@ void EXTI9_5_IRQHandler(void)
 		ircode[i] = byt;
 	}
 	irflag = 1;  //接收完毕后设置标志
+	count_ir = 0; //对重复次数清零
 	EXTI_ClearITPendingBit(EXTI_Line8);
 }
