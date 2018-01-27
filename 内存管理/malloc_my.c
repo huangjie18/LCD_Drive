@@ -167,3 +167,24 @@ u8 my_mem_perused(void)
 	}
 	return (used * 100) / MEM1_ALLOC_TABLE_SIZE;
 }
+/**
+ * [myrealloc description]
+ * @param  ptr  [旧的内存指针]
+ * @param  size [重申请内存大小]
+ * @return      [新的内存指针]
+ */
+void *myrealloc(void *ptr, u32 size)
+{
+	u32 offset;
+	offset = my_mem_malloc(size); //得到偏移地址
+	if (offset == 0xffffffff)
+	{
+		return NULL;  //申请不成功
+	}
+	else
+	{
+		mymemcpy((void*)((u32)mem1base + offset), ptr, size); //拷贝旧内存内容到新内存
+		myfree(ptr);  //释放旧内存
+		return (void*)((u32)mem1base + offset);
+	}
+}
