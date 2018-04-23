@@ -36,3 +36,4 @@
 ..\obj\stm32f0xx_it.o: ..\SYSTEM\delay\delay.h
 ..\obj\stm32f0xx_it.o: ..\SYSTEM\sys\sys.h
 ..\obj\stm32f0xx_it.o: ..\HARDWARE\LCD\lcd.h
+..\obj\stm32f0xx_it.o: ..\HARDWARE\KEY\key.h

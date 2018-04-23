@@ -35,7 +35,7 @@ void KEY_Init(void)
 	RCC->AHBENR |= 1<<18;//开启GPIOB时钟
 	
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;                     //PA15引脚
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;                   //输出模式
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;                   //输入模式
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;                   //上拉输入
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
@@ -49,11 +49,7 @@ void KEY_Init(void)
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//100M
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
 	GPIO_Init(GPIOB,&GPIO_InitStructure);//初始化GPIOB
-	
-	//电源键
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
-	GPIO_Init(GPIOA,&GPIO_InitStructure);//初始化PA10
-	
+		
 }
 
 /************************************************

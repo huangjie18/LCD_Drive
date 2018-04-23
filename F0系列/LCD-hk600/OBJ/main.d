@@ -35,3 +35,4 @@
 ..\obj\main.o: ..\SYSTEM\delay\delay.h
 ..\obj\main.o: ..\SYSTEM\sys\sys.h
 ..\obj\main.o: ..\HARDWARE\LCD\lcd.h
+..\obj\main.o: ..\HARDWARE\KEY\key.h

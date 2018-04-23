@@ -289,7 +289,8 @@ static void SetSysClock(void)
   
   /* SYSCLK, HCLK, PCLK configuration ----------------------------------------*/
   /* Enable HSE */    
-  RCC->CR |= ((uint32_t)RCC_CR_HSEON);
+  RCC->CR |= ((uint32_t)RCC_CR_HSEON);  //源代码
+//	RCC->CR |= ~((uint32_t)RCC_CR_HSEON); //修改后，关闭外部晶振
  
   /* Wait till HSE is ready and if Time out is reached exit */
   do
@@ -331,7 +332,7 @@ static void SetSysClock(void)
     /* Wait till PLL is ready */
     while((RCC->CR & RCC_CR_PLLRDY) == 0)
     {
-    }
+     }
 
     /* Select PLL as system clock source */
     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
@@ -348,31 +349,31 @@ static void SetSysClock(void)
 	  FLASH->ACR = FLASH_ACR_PRFTBE | FLASH_ACR_LATENCY;
  
     /* HCLK = SYSCLK */
-    RCC->CFGR |= (uint32_t)RCC_CFGR_HPRE_DIV1;
+      RCC->CFGR |= (uint32_t)RCC_CFGR_HPRE_DIV1;
       
     /* PCLK = HCLK */
-    RCC->CFGR |= (uint32_t)RCC_CFGR_PPRE_DIV1;
+	  RCC->CFGR |= (uint32_t)RCC_CFGR_PPRE_DIV1;
 
     /* PLL configuration */
-    RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE | RCC_CFGR_PLLMULL));
-    RCC->CFGR |= (uint32_t)( RCC_CFGR_PLLMULL12); //HSI作为PLL时钟，倍频12
+      RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE | RCC_CFGR_PLLMULL));
+      RCC->CFGR |= (uint32_t)( RCC_CFGR_PLLMULL12); //HSI作为PLL时钟，倍频12
             
     /* Enable PLL */
-    RCC->CR |= RCC_CR_PLLON;
+      RCC->CR |= RCC_CR_PLLON;
 
     /* Wait till PLL is ready */
-    while((RCC->CR & RCC_CR_PLLRDY) == 0)
-    {
-    }
+      while((RCC->CR & RCC_CR_PLLRDY) == 0)
+      {
+      }
 
     /* Select PLL as system clock source */
-    RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));  //清零
-    RCC->CFGR |= (uint32_t)RCC_CFGR_SW_PLL;             //写1 
+      RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));  //清零
+      RCC->CFGR |= (uint32_t)RCC_CFGR_SW_PLL;             //写1 
 
     /* Wait till PLL is used as system clock source */
-    while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != (uint32_t)RCC_CFGR_SWS_PLL)
-    {
-    }  
+      while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != (uint32_t)RCC_CFGR_SWS_PLL)
+      {
+      }  
   }  
 }
 

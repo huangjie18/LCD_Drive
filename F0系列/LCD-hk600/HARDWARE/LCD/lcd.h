@@ -24,6 +24,9 @@ PB0  --   CS
 PB1  --   RS
 
 *********************************************/
+//
+
+
 
 #define  saomiao   0x68
 #define  red       0xf800
@@ -35,14 +38,24 @@ PB1  --   RS
 #define  yellow    0xffe0
 #define  cyan      0x07ff
 #define  orange    0xfc08
+#define  gray      0x8400  //RGB各50%
 #define  fontcolor      orange	  //字体颜色
 
-
+#define BK  PBout_1  //PB1:背光
+#define CS  PBout_0  //PB0
+#define DC  PAout_3
+#define SCL PAout_5
+#define SDA PAout_7
+#define POWER_CTR  PAout_12
+#define RS  PFout_0
+#define WR  PFout_1
 //创建实例
 
-
+extern u8 mode;
 void LCD_Init(void);
 void display_rgb(unsigned int dat);
 void LCD_GPIO_Init(void);
+void display_test(void);
+void display_test_8(void);
 #endif
 

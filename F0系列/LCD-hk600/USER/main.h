@@ -33,6 +33,7 @@
 #include "sys.h"
 #include "lcd.h"
 #include "delay.h"
+#include "key.h"
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx.h"

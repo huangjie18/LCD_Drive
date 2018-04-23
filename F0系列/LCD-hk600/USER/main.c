@@ -27,26 +27,140 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+/****************************************************************
+注意：本次用到PF0和PF1引脚，所以修改了SetSysClock里面的代码
+*****************************************************************/
+void Open(void);
+void Close(void);
 
 /**
   * @brief  Main program.
   * @param  None
   * @retval None
   */
+
 int main(void)
 {
+	u16 count = 0;
+	u8 state = 0;
+	u8 state_last=0;
 	delay_init(8);
-//	delay_ms(1000);
+	LCD_GPIO_Init(); //LCD引脚初始化
+	GPIO_SetBits(GPIOB,GPIO_Pin_1);  //背光开
+//	POWER_CTR = 1;
+//	WR = 1;
+//	RS = 1;
+//	LCD_Init();
+//	display_test_8();
+//	KEY_Init();      //按键引脚初始化
+
+
+//	Open();  //开机
 
 	LCD_Init();
-	display_rgb(green);
-	while (1)
+	LCD_Init();
+	display_test();
+//	display_test_8();
+//	Close();  //关机
+	while(1)
 	{
+//		if(!key6)
+//		{
+//			count++;
+//			state = state_last;
+//			state++;
+//			if(state==1)
+//			{
+//				mode = 3;
+//			}
+//			else if(state==2)
+//			{
+//				mode = 4;
+//			}
+//			else if(state==3)
+//			{
+//				state = 1;
+//			}
+//			state_last = state;
+//		
+//		}
+//		else
+//		{
+//			count=0;
+//			state=0;
+//		}
+//		if(count==100)
+//		{
+////			Close(); //关机
+//		}
+//		switch(state)
+//		{
+//			case 1 :
+////					LCD_Init();
+////					display_test();
+//			BK=0;
+//					break;
+//			case 2 :
+////					LCD_Init();
+////					display_test();
+//			BK = 1;
+//					break;
+//			default:
+//					break;
+//		}
 
+//		delay_ms(1000);
+	}
+
+}
+
+//开机函数
+void Open(void)
+{
+	u8 count=0;
+	u8 kai_flag = 1;
+	while(kai_flag)
+	{
+		if(!key6)
+		{
+			count++;
+		}
+		else
+		{
+			count = 0;
+		}
+		if(count==2)
+		{
+			POWER_CTR = 1; //电源开
+			BK = 1;        //背光开
+			kai_flag = 0;
+		}
+		delay_ms(1000);
 	}
 }
 
-
+//关机函数
+void Close(void)
+{
+	u8 count=0;
+	while(1)
+	{
+		if(!key6)
+		{
+			count++;
+		}
+		else
+		{
+			count = 0;
+		}
+		if(count==2)
+		{
+			POWER_CTR = 0; //电源开
+			BK = 0;        //背光开
+		}
+		delay_ms(1000);
+	}
+}
 #ifdef  USE_FULL_ASSERT
 
 /**

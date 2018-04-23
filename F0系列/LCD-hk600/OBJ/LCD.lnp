@@ -9,6 +9,7 @@
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\lcd.o"
+"..\obj\key.o"
 --strict --scatter "..\OBJ\LCD.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
