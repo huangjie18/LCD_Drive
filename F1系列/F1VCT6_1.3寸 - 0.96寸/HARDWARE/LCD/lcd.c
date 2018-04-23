@@ -417,7 +417,7 @@ void LCD_Init_0(void)
 	LCD_WR_command(0x3A); //65k mode
 	LCD_WR_para(0x05);
 	LCD_WR_command(0x36); //65k mode//36
-	LCD_WR_para(0x60);//
+	LCD_WR_para(0x68);//
 	LCD_WR_command(0x29); //Display on   
 	delay_ms(20);
 }
@@ -432,12 +432,12 @@ void display_rgb(void)
   u16 i,j,k=0;
   LCD_WR_command(0x2a);              //Horizontal Address Start Position
   LCD_WR_para(0x00);
-  LCD_WR_para(0x01);
+  LCD_WR_para(0x00);
   LCD_WR_para(0x00);
   LCD_WR_para(0xA0);
   LCD_WR_command(0x2b);              //Vertival Address end Position
   LCD_WR_para(0x00);
-  LCD_WR_para(0x1A);
+  LCD_WR_para(0x1A-2);
   LCD_WR_para(0x00);
   LCD_WR_para(0x69);
   LCD_WR_command(0x2c);
@@ -446,7 +446,7 @@ void display_rgb(void)
 	
 	for(i=0;i<21;i++)
 	{	for (j=0;j<160;j++)
-		{ LCD_WR_data(0xFF,0x00);}	//R
+		{ LCD_WR_data(0xF8,0x00);}	//R
 	}
 	
 	
@@ -454,11 +454,11 @@ void display_rgb(void)
 
 	for(i=21;i<50;i++)
 	{	for (j=0;j<160;j++)
-		{ LCD_WR_data(0x00,0XF0);}	//G
+		{ LCD_WR_data(green>>8,green&0xff);}	//G
 	}
 
 	for(i=50;i<80;i++)
 	{	for (j=0;j<160;j++)
-		{ LCD_WR_data(0x07,0xFf);}	//B
+		{ LCD_WR_data(blue>>8,blue&0xff);}	//B
 	}
  }

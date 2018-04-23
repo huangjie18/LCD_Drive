@@ -1,0 +1,40 @@
+#ifndef __DELAY_H
+#define __DELAY_H 			   
+#include <sys.h>	  
+//////////////////////////////////////////////////////////////////////////////////  
+
+////////////////////////////////////////////////////////////////////////////////// 	 
+void delay_init(int8_t SYSCLK);
+void delay_ms(int16_t nms);
+void delay_us(int32_t nus);
+void delay_xms(u16 nms);
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
