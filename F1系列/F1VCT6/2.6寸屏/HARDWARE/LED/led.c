@@ -358,3 +358,143 @@ void Lcd_Initialize_4551(void)
 		LCD_WR_REG_DATA(0x07, 0x0133);
 		delay_ms(20); 
 }
+
+void Lcd_Initialize_5420(void)
+{
+	LCD_RST = 0;
+	delay_ms(200);
+	LCD_RST = 1;
+	delay_ms(20);
+	
+	LCD_CS = 1;
+	LCD_RD = 1;
+	LCD_WR = 1;
+	delay_ms(5);
+	LCD_CS = 0;
+	
+	LCD_WR_REG_DATA(0x0000, 0x0000); 
+	LCD_WR_REG_DATA(0x0001, 0x0100); 
+	LCD_WR_REG_DATA(0x0002, 0x0100); 
+	LCD_WR_REG_DATA(0x0003, 0x1030); 
+	LCD_WR_REG_DATA(0x0008, 0x0808); 
+		LCD_WR_REG_DATA(0x0009, 0x0001); 
+		LCD_WR_REG_DATA(0x000B, 0x0010); 
+		LCD_WR_REG_DATA(0x000C, 0x0000); 
+		LCD_WR_REG_DATA(0x000F, 0x0000); 
+		LCD_WR_REG_DATA(0x0007, 0x0001); 
+	//--------------- Panel interface control 1~6 ---------------//
+
+		LCD_WR_REG_DATA(0x0010, 0x0011);	//0x0012 0010
+		LCD_WR_REG_DATA(0x0011, 0x0200);	//0x0202
+		LCD_WR_REG_DATA(0x0012, 0x0300);	//
+		LCD_WR_REG_DATA(0x0020, 0x021E);	//
+		LCD_WR_REG_DATA(0x0021, 0x0202);	//
+		LCD_WR_REG_DATA(0x0022, 0x0100);	//
+		LCD_WR_REG_DATA(0x0090, 0x8000);	//
+
+
+	//--------------- Power control 1~6 ---------------//
+		LCD_WR_REG_DATA(0x0100, 0x17B0); 
+		LCD_WR_REG_DATA(0x0101, 0x0147);
+		LCD_WR_REG_DATA(0x0102, 0x0138);
+
+		LCD_WR_REG_DATA(0x0103, 0x3000);
+
+		LCD_WR_REG_DATA(0x0107, 0x0000);
+		LCD_WR_REG_DATA(0x0110, 0x0001);
+		LCD_WR_REG_DATA(0x0280, 0x0000); // NVM write / read
+		LCD_WR_REG_DATA(0x0281, 0x0000); // Vcom high voltage 1//0000
+		LCD_WR_REG_DATA(0x0282, 0x0000); // Vcom high voltage 2
+
+
+	//--------------- Gamma 2.2 control ---------------//
+
+
+		LCD_WR_REG_DATA(0x0300, 0x1011);	//0x0101	
+		LCD_WR_REG_DATA(0x0301, 0x2524);	//0x0024
+		LCD_WR_REG_DATA(0x0302, 0x2F20);	//0x1326
+		LCD_WR_REG_DATA(0x0303, 0x202F);	//0x2313
+		LCD_WR_REG_DATA(0x0304, 0x2325);	//0x2400
+		LCD_WR_REG_DATA(0x0305, 0x1110);	//0x0100
+		LCD_WR_REG_DATA(0x0306, 0x0e04);	//0x1704
+		LCD_WR_REG_DATA(0x0307, 0x040e);	//0x0417
+		LCD_WR_REG_DATA(0x0308, 0x0005);	//0x0007
+		LCD_WR_REG_DATA(0x0309, 0x0003);	//0x0105
+		LCD_WR_REG_DATA(0x030A, 0x0F04);	//0x0F05
+		LCD_WR_REG_DATA(0x030B, 0x0F00);	//0x0F01
+		LCD_WR_REG_DATA(0x030C, 0x000F);	//0x010F
+		LCD_WR_REG_DATA(0x030D, 0x040F);	//0x050F
+		LCD_WR_REG_DATA(0x030E, 0x0300);	//0x0501
+		LCD_WR_REG_DATA(0x030F, 0x0500);	//0x0700
+		LCD_WR_REG_DATA(0x0400, 0x3500);	//0x3100
+		LCD_WR_REG_DATA(0x0401, 0x0001);	//0x0001
+		LCD_WR_REG_DATA(0x0404, 0x0000);	//0x0000
+
+
+
+	//--------------- Partial display ---------------//
+		LCD_WR_REG_DATA(0x0201, 0x0000);
+		LCD_WR_REG_DATA(0x0200, 0x0000);
+		LCD_WR_REG_DATA(0x0210, 0x0000); 
+		LCD_WR_REG_DATA(0x0211, 0x00EF); 
+		LCD_WR_REG_DATA(0x0212, 0x0000); 
+		LCD_WR_REG_DATA(0x0213, 0x018F);
+	 
+		LCD_WR_REG_DATA(0x0500, 0x0000);
+		LCD_WR_REG_DATA(0x0501, 0x0000);
+		LCD_WR_REG_DATA(0x0502, 0x0000);
+		LCD_WR_REG_DATA(0x0503, 0x0000);
+		LCD_WR_REG_DATA(0x0504, 0x0000);
+		LCD_WR_REG_DATA(0x0505, 0x0000);
+		LCD_WR_REG_DATA(0x0600, 0x0000); 
+		LCD_WR_REG_DATA(0x0606, 0x0000); 
+		LCD_WR_REG_DATA(0x06F0, 0x0000); 
+	//--------------- Orise mode ---------------//
+		LCD_WR_REG_DATA(0x07F0, 0x5420);
+		LCD_WR_REG_DATA(0x07de, 0x0000);
+		LCD_WR_REG_DATA(0x07F2, 0x00df);
+		LCD_WR_REG_DATA(0x07F3, 0x088e);	//0x288A
+		LCD_WR_REG_DATA(0x07F4, 0x0022);
+		LCD_WR_REG_DATA(0x07F5, 0x0001);	//
+		LCD_WR_REG_DATA(0x07F0, 0x0000);
+		LCD_WR_REG_DATA(0x0007, 0x0173); // Display on
+
+		delay_ms(150);
+}
+
+void LCD_Clear_5420(void)
+{
+	u16 i, j;
+	LCD_WR_REG_DATA(0x0210, 0x0000);	//X_Start);	//x start
+	LCD_WR_REG_DATA(0x0211, 0x00ef);	//X_End);		//x end
+	LCD_WR_REG_DATA(0x0212, 0x0000);	//Y_Start);	//y start
+	LCD_WR_REG_DATA(0x0213, 0x018f);	//Y_End);		//y end
+	LCD_WR_REG_DATA(0x0201, 0x0000);	//Y_Start);	//y addres
+	LCD_WR_REG_DATA(0x0200, 0x0000);	//X_Start);	//x addres
+
+	LCD_WR_REG(0x0202);
+	
+	LCD_RS = 1;  //Ð´Êý¾Ý
+	LCD_CS = 0;
+	for (i = 0; i < 133; i++)
+	{
+		for (j = 0; j < 240; j++)
+		{
+			LCD_WR_DATA(red);
+		}
+	}
+	for (i = 0; i < 133; i++)
+	{
+		for (j = 0; j < 240; j++)
+		{
+			LCD_WR_DATA(green);
+		}
+	}
+	for (i = 0; i < 134; i++)
+	{
+		for (j = 0; j < 240; j++)
+		{
+			LCD_WR_DATA(blue);
+		}
+	}
+}

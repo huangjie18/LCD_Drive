@@ -5,25 +5,26 @@ Component: ARM Compiler 5.05 update 2 (build 169) Tool: armlink [4d0f33]
 Section Cross References
 
     main.o(i.main) refers to delay.o(i.delay_init) for delay_init
-    main.o(i.main) refers to lcd.o(i.LCD_GPIO_Init) for LCD_GPIO_Init
-    main.o(i.main) refers to lcd.o(i.LCD_Init) for LCD_Init
-    main.o(i.main) refers to lcd.o(i.display_test) for display_test
+    main.o(i.main) refers to lcd.o(i.LCD_GPIO_Init_1) for LCD_GPIO_Init_1
+    main.o(i.main) refers to lcd.o(i.LCD_Init_1) for LCD_Init_1
+    main.o(i.main) refers to lcd.o(i.display_test_1) for display_test_1
     system_stm32f10x.o(i.SetSysClock) refers to system_stm32f10x.o(i.SetSysClockTo72) for SetSysClockTo72
     system_stm32f10x.o(i.SystemCoreClockUpdate) refers to system_stm32f10x.o(.data) for SystemCoreClock
     system_stm32f10x.o(i.SystemInit) refers to system_stm32f10x.o(i.SetSysClock) for SetSysClock
-    lcd.o(i.LCD_GPIO_Init) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
-    lcd.o(i.LCD_GPIO_Init) refers to stm32f10x_gpio.o(i.GPIO_PinRemapConfig) for GPIO_PinRemapConfig
-    lcd.o(i.LCD_GPIO_Init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
-    lcd.o(i.LCD_GPIO_Init) refers to stm32f10x_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
-    lcd.o(i.LCD_GPIO_Init) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
-    lcd.o(i.LCD_Init) refers to delay.o(i.delay_ms) for delay_ms
-    lcd.o(i.LCD_Init) refers to lcd.o(i.LcdWriCommand) for LcdWriCommand
-    lcd.o(i.LCD_Init) refers to lcd.o(i.LcdWriData) for LcdWriData
-    lcd.o(i.WriteDAT) refers to lcd.o(i.LcdWriData) for LcdWriData
-    lcd.o(i.address) refers to lcd.o(i.LcdWriCommand) for LcdWriCommand
-    lcd.o(i.address) refers to lcd.o(i.LcdWriData) for LcdWriData
-    lcd.o(i.display_test) refers to lcd.o(i.address) for address
-    lcd.o(i.display_test) refers to lcd.o(i.WriteDAT) for WriteDAT
+    lcd.o(i.LCD_GPIO_Init_1) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    lcd.o(i.LCD_GPIO_Init_1) refers to stm32f10x_gpio.o(i.GPIO_PinRemapConfig) for GPIO_PinRemapConfig
+    lcd.o(i.LCD_GPIO_Init_1) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
+    lcd.o(i.LCD_GPIO_Init_1) refers to stm32f10x_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
+    lcd.o(i.LCD_GPIO_Init_1) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    lcd.o(i.LCD_Init_1) refers to lcd.o(i.LCD_GPIO_Init_1) for LCD_GPIO_Init_1
+    lcd.o(i.LCD_Init_1) refers to delay.o(i.delay_ms) for delay_ms
+    lcd.o(i.LCD_Init_1) refers to lcd.o(i.LcdWriCommand_1) for LcdWriCommand_1
+    lcd.o(i.LCD_Init_1) refers to lcd.o(i.LcdWriData_1) for LcdWriData_1
+    lcd.o(i.WriteDAT_1) refers to lcd.o(i.LcdWriData_1) for LcdWriData_1
+    lcd.o(i.address_1) refers to lcd.o(i.LcdWriCommand_1) for LcdWriCommand_1
+    lcd.o(i.address_1) refers to lcd.o(i.LcdWriData_1) for LcdWriData_1
+    lcd.o(i.display_test_1) refers to lcd.o(i.address_1) for address_1
+    lcd.o(i.display_test_1) refers to lcd.o(i.WriteDAT_1) for WriteDAT_1
     delay.o(i.delay_init) refers to misc.o(i.SysTick_CLKSourceConfig) for SysTick_CLKSourceConfig
     delay.o(i.delay_init) refers to system_stm32f10x.o(.data) for SystemCoreClock
     delay.o(i.delay_init) refers to delay.o(.data) for fac_us
@@ -398,36 +399,36 @@ Image Symbol Table
     i.GPIO_ResetBits                         0x08000420   Section        0  stm32f10x_gpio.o(i.GPIO_ResetBits)
     i.GPIO_SetBits                           0x08000424   Section        0  stm32f10x_gpio.o(i.GPIO_SetBits)
     i.HardFault_Handler                      0x08000428   Section        0  stm32f10x_it.o(i.HardFault_Handler)
-    i.LCD_GPIO_Init                          0x0800042c   Section        0  lcd.o(i.LCD_GPIO_Init)
-    i.LCD_Init                               0x080004cc   Section        0  lcd.o(i.LCD_Init)
-    i.LcdWriCommand                          0x08000674   Section        0  lcd.o(i.LcdWriCommand)
-    LcdWriCommand                            0x08000675   Thumb Code    62  lcd.o(i.LcdWriCommand)
-    i.LcdWriData                             0x080006c0   Section        0  lcd.o(i.LcdWriData)
-    LcdWriData                               0x080006c1   Thumb Code    62  lcd.o(i.LcdWriData)
-    i.MemManage_Handler                      0x0800070c   Section        0  stm32f10x_it.o(i.MemManage_Handler)
-    i.NMI_Handler                            0x08000710   Section        0  stm32f10x_it.o(i.NMI_Handler)
-    i.PendSV_Handler                         0x08000712   Section        0  stm32f10x_it.o(i.PendSV_Handler)
-    i.RCC_APB2PeriphClockCmd                 0x08000714   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    i.SVC_Handler                            0x08000734   Section        0  stm32f10x_it.o(i.SVC_Handler)
-    i.SetSysClock                            0x08000736   Section        0  system_stm32f10x.o(i.SetSysClock)
-    SetSysClock                              0x08000737   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
-    i.SetSysClockTo72                        0x08000740   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
-    SetSysClockTo72                          0x08000741   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
-    i.SysTick_CLKSourceConfig                0x08000820   Section        0  misc.o(i.SysTick_CLKSourceConfig)
-    i.SysTick_Handler                        0x08000848   Section        0  stm32f10x_it.o(i.SysTick_Handler)
-    i.SystemInit                             0x0800084c   Section        0  system_stm32f10x.o(i.SystemInit)
-    i.USART1_IRQHandler                      0x080008ac   Section        0  usart.o(i.USART1_IRQHandler)
-    i.USART_GetITStatus                      0x08000934   Section        0  stm32f10x_usart.o(i.USART_GetITStatus)
-    i.USART_ReceiveData                      0x08000988   Section        0  stm32f10x_usart.o(i.USART_ReceiveData)
-    i.UsageFault_Handler                     0x08000992   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
-    i.WriteDAT                               0x08000996   Section        0  lcd.o(i.WriteDAT)
-    WriteDAT                                 0x08000997   Thumb Code    20  lcd.o(i.WriteDAT)
-    i._sys_exit                              0x080009aa   Section        0  usart.o(i._sys_exit)
-    i.address                                0x080009b0   Section        0  lcd.o(i.address)
-    i.delay_init                             0x080009f8   Section        0  delay.o(i.delay_init)
-    i.delay_ms                               0x08000a3c   Section        0  delay.o(i.delay_ms)
-    i.display_test                           0x08000a88   Section        0  lcd.o(i.display_test)
-    i.main                                   0x08000b08   Section        0  main.o(i.main)
+    i.LCD_GPIO_Init_1                        0x0800042c   Section        0  lcd.o(i.LCD_GPIO_Init_1)
+    i.LCD_Init_1                             0x080004cc   Section        0  lcd.o(i.LCD_Init_1)
+    i.LcdWriCommand_1                        0x08000678   Section        0  lcd.o(i.LcdWriCommand_1)
+    LcdWriCommand_1                          0x08000679   Thumb Code    62  lcd.o(i.LcdWriCommand_1)
+    i.LcdWriData_1                           0x080006c4   Section        0  lcd.o(i.LcdWriData_1)
+    LcdWriData_1                             0x080006c5   Thumb Code    62  lcd.o(i.LcdWriData_1)
+    i.MemManage_Handler                      0x08000710   Section        0  stm32f10x_it.o(i.MemManage_Handler)
+    i.NMI_Handler                            0x08000714   Section        0  stm32f10x_it.o(i.NMI_Handler)
+    i.PendSV_Handler                         0x08000716   Section        0  stm32f10x_it.o(i.PendSV_Handler)
+    i.RCC_APB2PeriphClockCmd                 0x08000718   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    i.SVC_Handler                            0x08000738   Section        0  stm32f10x_it.o(i.SVC_Handler)
+    i.SetSysClock                            0x0800073a   Section        0  system_stm32f10x.o(i.SetSysClock)
+    SetSysClock                              0x0800073b   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
+    i.SetSysClockTo72                        0x08000744   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
+    SetSysClockTo72                          0x08000745   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
+    i.SysTick_CLKSourceConfig                0x08000824   Section        0  misc.o(i.SysTick_CLKSourceConfig)
+    i.SysTick_Handler                        0x0800084c   Section        0  stm32f10x_it.o(i.SysTick_Handler)
+    i.SystemInit                             0x08000850   Section        0  system_stm32f10x.o(i.SystemInit)
+    i.USART1_IRQHandler                      0x080008b0   Section        0  usart.o(i.USART1_IRQHandler)
+    i.USART_GetITStatus                      0x08000938   Section        0  stm32f10x_usart.o(i.USART_GetITStatus)
+    i.USART_ReceiveData                      0x0800098c   Section        0  stm32f10x_usart.o(i.USART_ReceiveData)
+    i.UsageFault_Handler                     0x08000996   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
+    i.WriteDAT_1                             0x0800099a   Section        0  lcd.o(i.WriteDAT_1)
+    WriteDAT_1                               0x0800099b   Thumb Code    20  lcd.o(i.WriteDAT_1)
+    i._sys_exit                              0x080009ae   Section        0  usart.o(i._sys_exit)
+    i.address_1                              0x080009b4   Section        0  lcd.o(i.address_1)
+    i.delay_init                             0x080009fc   Section        0  delay.o(i.delay_init)
+    i.delay_ms                               0x08000a40   Section        0  delay.o(i.delay_ms)
+    i.display_test_1                         0x08000a8c   Section        0  lcd.o(i.display_test_1)
+    i.main                                   0x08000b0c   Section        0  main.o(i.main)
     .data                                    0x20000000   Section       20  system_stm32f10x.o(.data)
     .data                                    0x20000014   Section        4  delay.o(.data)
     fac_us                                   0x20000014   Data           1  delay.o(.data)
@@ -604,28 +605,28 @@ Image Symbol Table
     GPIO_ResetBits                           0x08000421   Thumb Code     4  stm32f10x_gpio.o(i.GPIO_ResetBits)
     GPIO_SetBits                             0x08000425   Thumb Code     4  stm32f10x_gpio.o(i.GPIO_SetBits)
     HardFault_Handler                        0x08000429   Thumb Code     4  stm32f10x_it.o(i.HardFault_Handler)
-    LCD_GPIO_Init                            0x0800042d   Thumb Code   138  lcd.o(i.LCD_GPIO_Init)
-    LCD_Init                                 0x080004cd   Thumb Code   414  lcd.o(i.LCD_Init)
-    MemManage_Handler                        0x0800070d   Thumb Code     4  stm32f10x_it.o(i.MemManage_Handler)
-    NMI_Handler                              0x08000711   Thumb Code     2  stm32f10x_it.o(i.NMI_Handler)
-    PendSV_Handler                           0x08000713   Thumb Code     2  stm32f10x_it.o(i.PendSV_Handler)
-    RCC_APB2PeriphClockCmd                   0x08000715   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    SVC_Handler                              0x08000735   Thumb Code     2  stm32f10x_it.o(i.SVC_Handler)
-    SysTick_CLKSourceConfig                  0x08000821   Thumb Code    40  misc.o(i.SysTick_CLKSourceConfig)
-    SysTick_Handler                          0x08000849   Thumb Code     2  stm32f10x_it.o(i.SysTick_Handler)
-    SystemInit                               0x0800084d   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
-    USART1_IRQHandler                        0x080008ad   Thumb Code   122  usart.o(i.USART1_IRQHandler)
-    USART_GetITStatus                        0x08000935   Thumb Code    84  stm32f10x_usart.o(i.USART_GetITStatus)
-    USART_ReceiveData                        0x08000989   Thumb Code    10  stm32f10x_usart.o(i.USART_ReceiveData)
-    UsageFault_Handler                       0x08000993   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
-    _sys_exit                                0x080009ab   Thumb Code     6  usart.o(i._sys_exit)
-    address                                  0x080009b1   Thumb Code    70  lcd.o(i.address)
-    delay_init                               0x080009f9   Thumb Code    50  delay.o(i.delay_init)
-    delay_ms                                 0x08000a3d   Thumb Code    72  delay.o(i.delay_ms)
-    display_test                             0x08000a89   Thumb Code   128  lcd.o(i.display_test)
-    main                                     0x08000b09   Thumb Code    24  main.o(i.main)
-    Region$$Table$$Base                      0x08000b20   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000b40   Number         0  anon$$obj.o(Region$$Table)
+    LCD_GPIO_Init_1                          0x0800042d   Thumb Code   138  lcd.o(i.LCD_GPIO_Init_1)
+    LCD_Init_1                               0x080004cd   Thumb Code   418  lcd.o(i.LCD_Init_1)
+    MemManage_Handler                        0x08000711   Thumb Code     4  stm32f10x_it.o(i.MemManage_Handler)
+    NMI_Handler                              0x08000715   Thumb Code     2  stm32f10x_it.o(i.NMI_Handler)
+    PendSV_Handler                           0x08000717   Thumb Code     2  stm32f10x_it.o(i.PendSV_Handler)
+    RCC_APB2PeriphClockCmd                   0x08000719   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    SVC_Handler                              0x08000739   Thumb Code     2  stm32f10x_it.o(i.SVC_Handler)
+    SysTick_CLKSourceConfig                  0x08000825   Thumb Code    40  misc.o(i.SysTick_CLKSourceConfig)
+    SysTick_Handler                          0x0800084d   Thumb Code     2  stm32f10x_it.o(i.SysTick_Handler)
+    SystemInit                               0x08000851   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
+    USART1_IRQHandler                        0x080008b1   Thumb Code   122  usart.o(i.USART1_IRQHandler)
+    USART_GetITStatus                        0x08000939   Thumb Code    84  stm32f10x_usart.o(i.USART_GetITStatus)
+    USART_ReceiveData                        0x0800098d   Thumb Code    10  stm32f10x_usart.o(i.USART_ReceiveData)
+    UsageFault_Handler                       0x08000997   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
+    _sys_exit                                0x080009af   Thumb Code     6  usart.o(i._sys_exit)
+    address_1                                0x080009b5   Thumb Code    70  lcd.o(i.address_1)
+    delay_init                               0x080009fd   Thumb Code    50  delay.o(i.delay_init)
+    delay_ms                                 0x08000a41   Thumb Code    72  delay.o(i.delay_ms)
+    display_test_1                           0x08000a8d   Thumb Code   128  lcd.o(i.display_test_1)
+    main                                     0x08000b0d   Thumb Code    24  main.o(i.main)
+    Region$$Table$$Base                      0x08000b24   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000b44   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f10x.o(.data)
     AHBPrescTable                            0x20000004   Data          16  system_stm32f10x.o(.data)
     __stdout                                 0x20000018   Data           4  usart.o(.data)
@@ -642,9 +643,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001cd
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00000b60, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00000b64, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x08000000, Size: 0x00000b40, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x08000000, Size: 0x00000b44, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -709,35 +710,35 @@ Memory Map of the image
     0x08000420   0x00000004   Code   RO          440    i.GPIO_ResetBits    stm32f10x_gpio.o
     0x08000424   0x00000004   Code   RO          441    i.GPIO_SetBits      stm32f10x_gpio.o
     0x08000428   0x00000004   Code   RO          112    i.HardFault_Handler  stm32f10x_it.o
-    0x0800042c   0x000000a0   Code   RO          233    i.LCD_GPIO_Init     lcd.o
-    0x080004cc   0x000001a8   Code   RO          234    i.LCD_Init          lcd.o
-    0x08000674   0x0000004c   Code   RO          235    i.LcdWriCommand     lcd.o
-    0x080006c0   0x0000004c   Code   RO          236    i.LcdWriData        lcd.o
-    0x0800070c   0x00000004   Code   RO          113    i.MemManage_Handler  stm32f10x_it.o
-    0x08000710   0x00000002   Code   RO          114    i.NMI_Handler       stm32f10x_it.o
-    0x08000712   0x00000002   Code   RO          115    i.PendSV_Handler    stm32f10x_it.o
-    0x08000714   0x00000020   Code   RO          569    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
-    0x08000734   0x00000002   Code   RO          116    i.SVC_Handler       stm32f10x_it.o
-    0x08000736   0x00000008   Code   RO          199    i.SetSysClock       system_stm32f10x.o
-    0x0800073e   0x00000002   PAD
-    0x08000740   0x000000e0   Code   RO          200    i.SetSysClockTo72   system_stm32f10x.o
-    0x08000820   0x00000028   Code   RO          395    i.SysTick_CLKSourceConfig  misc.o
-    0x08000848   0x00000002   Code   RO          117    i.SysTick_Handler   stm32f10x_it.o
-    0x0800084a   0x00000002   PAD
-    0x0800084c   0x00000060   Code   RO          202    i.SystemInit        system_stm32f10x.o
-    0x080008ac   0x00000088   Code   RO          333    i.USART1_IRQHandler  usart.o
-    0x08000934   0x00000054   Code   RO          773    i.USART_GetITStatus  stm32f10x_usart.o
-    0x08000988   0x0000000a   Code   RO          783    i.USART_ReceiveData  stm32f10x_usart.o
-    0x08000992   0x00000004   Code   RO          118    i.UsageFault_Handler  stm32f10x_it.o
-    0x08000996   0x00000014   Code   RO          237    i.WriteDAT          lcd.o
-    0x080009aa   0x00000006   Code   RO          334    i._sys_exit         usart.o
-    0x080009b0   0x00000046   Code   RO          238    i.address           lcd.o
-    0x080009f6   0x00000002   PAD
-    0x080009f8   0x00000044   Code   RO          278    i.delay_init        delay.o
-    0x08000a3c   0x0000004c   Code   RO          279    i.delay_ms          delay.o
-    0x08000a88   0x00000080   Code   RO          239    i.display_test      lcd.o
-    0x08000b08   0x00000018   Code   RO            1    i.main              main.o
-    0x08000b20   0x00000020   Data   RO         1103    Region$$Table       anon$$obj.o
+    0x0800042c   0x000000a0   Code   RO          233    i.LCD_GPIO_Init_1   lcd.o
+    0x080004cc   0x000001ac   Code   RO          234    i.LCD_Init_1        lcd.o
+    0x08000678   0x0000004c   Code   RO          235    i.LcdWriCommand_1   lcd.o
+    0x080006c4   0x0000004c   Code   RO          236    i.LcdWriData_1      lcd.o
+    0x08000710   0x00000004   Code   RO          113    i.MemManage_Handler  stm32f10x_it.o
+    0x08000714   0x00000002   Code   RO          114    i.NMI_Handler       stm32f10x_it.o
+    0x08000716   0x00000002   Code   RO          115    i.PendSV_Handler    stm32f10x_it.o
+    0x08000718   0x00000020   Code   RO          569    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
+    0x08000738   0x00000002   Code   RO          116    i.SVC_Handler       stm32f10x_it.o
+    0x0800073a   0x00000008   Code   RO          199    i.SetSysClock       system_stm32f10x.o
+    0x08000742   0x00000002   PAD
+    0x08000744   0x000000e0   Code   RO          200    i.SetSysClockTo72   system_stm32f10x.o
+    0x08000824   0x00000028   Code   RO          395    i.SysTick_CLKSourceConfig  misc.o
+    0x0800084c   0x00000002   Code   RO          117    i.SysTick_Handler   stm32f10x_it.o
+    0x0800084e   0x00000002   PAD
+    0x08000850   0x00000060   Code   RO          202    i.SystemInit        system_stm32f10x.o
+    0x080008b0   0x00000088   Code   RO          333    i.USART1_IRQHandler  usart.o
+    0x08000938   0x00000054   Code   RO          773    i.USART_GetITStatus  stm32f10x_usart.o
+    0x0800098c   0x0000000a   Code   RO          783    i.USART_ReceiveData  stm32f10x_usart.o
+    0x08000996   0x00000004   Code   RO          118    i.UsageFault_Handler  stm32f10x_it.o
+    0x0800099a   0x00000014   Code   RO          237    i.WriteDAT_1        lcd.o
+    0x080009ae   0x00000006   Code   RO          334    i._sys_exit         usart.o
+    0x080009b4   0x00000046   Code   RO          238    i.address_1         lcd.o
+    0x080009fa   0x00000002   PAD
+    0x080009fc   0x00000044   Code   RO          278    i.delay_init        delay.o
+    0x08000a40   0x0000004c   Code   RO          279    i.delay_ms          delay.o
+    0x08000a8c   0x00000080   Code   RO          239    i.display_test_1    lcd.o
+    0x08000b0c   0x00000018   Code   RO            1    i.main              main.o
+    0x08000b24   0x00000020   Data   RO         1103    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000020, Max: 0xffffffff, ABSOLUTE)
@@ -767,8 +768,8 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        144         22          0          4          0       1160   delay.o
-       954         60          0          0          0       3792   lcd.o
-        24          0          0          0          0     222403   main.o
+       958         60          0          0          0       3824   lcd.o
+        24          0          0          0          0     222407   main.o
         40          0          0          0          0        514   misc.o
         64         26        304          0       1536        792   startup_stm32f10x_hd.o
        430          6          0          0          0       3806   stm32f10x_gpio.o
@@ -780,7 +781,7 @@ Image component sizes
        142         14          0          6        200       2884   usart.o
 
     ----------------------------------------------------------------------
-      2284        162        336         32       1736     244291   Object Totals
+      2288        162        336         32       1736     244327   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          2          0          0   (incl. Padding)
 
@@ -828,15 +829,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2544        174        336         32       1832     243251   Grand Totals
-      2544        174        336         32       1832     243251   ELF Image Totals
-      2544        174        336         32          0          0   ROM Totals
+      2548        174        336         32       1832     243287   Grand Totals
+      2548        174        336         32       1832     243287   ELF Image Totals
+      2548        174        336         32          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2880 (   2.81kB)
+    Total RO  Size (Code + RO Data)                 2884 (   2.82kB)
     Total RW  Size (RW Data + ZI Data)              1864 (   1.82kB)
-    Total ROM Size (Code + RO Data + RW Data)       2912 (   2.84kB)
+    Total ROM Size (Code + RO Data + RW Data)       2916 (   2.85kB)
 
 ==============================================================================
 

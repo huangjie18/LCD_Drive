@@ -57,10 +57,16 @@ int main(void)
 
 //	Open();  //开机
 
+	//SPI
 	LCD_Init();
 	LCD_Init();
 	display_test();
-//	display_test_8();
+
+	
+	ST7789_Init_24(); //24引脚的LCD初始化
+	ST7789_Init_24(); //24引脚的LCD初始化
+	display_test_8();
+	display_test_8();
 //	Close();  //关机
 	while(1)
 	{

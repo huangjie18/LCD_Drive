@@ -3,11 +3,11 @@
 <title>Static Call Graph - [..\OBJ\LED.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\LED.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Mon Apr 23 14:32:14 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Fri Apr 27 08:58:20 2018
 <BR><P>
-<H3>Maximum Stack Usage =         32 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         40 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; display_test &rArr; WriteDAT
+__rt_entry_main &rArr; main &rArr; LCD_Init_1 &rArr; LCD_GPIO_Init_1 &rArr; GPIO_Init
 <P>
 <H3>
 Functions with no stack information
@@ -209,8 +209,8 @@ Global Symbols
 <P><STRONG><a name="[91]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[56]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; display_test &rArr; WriteDAT
+<BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; LCD_Init_1 &rArr; LCD_GPIO_Init_1 &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -464,28 +464,28 @@ Global Symbols
 <P><STRONG><a name="[62]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(i.GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init
+<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init_1
 </UL>
 
 <P><STRONG><a name="[61]"></a>GPIO_PinRemapConfig</STRONG> (Thumb, 138 bytes, Stack size 20 bytes, stm32f10x_gpio.o(i.GPIO_PinRemapConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_PinRemapConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init
+<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init_1
 </UL>
 
 <P><STRONG><a name="[63]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ResetBits))
-<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init
+<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init_1
 </UL>
 
 <P><STRONG><a name="[64]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_SetBits))
-<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init
+<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init_1
 </UL>
 
 <P><STRONG><a name="[5]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.HardFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[5f]"></a>LCD_GPIO_Init</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, lcd.o(i.LCD_GPIO_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LCD_GPIO_Init &rArr; GPIO_Init
+<P><STRONG><a name="[5f]"></a>LCD_GPIO_Init_1</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, lcd.o(i.LCD_GPIO_Init_1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LCD_GPIO_Init_1 &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
@@ -493,15 +493,17 @@ Global Symbols
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinRemapConfig
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init_1
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[65]"></a>LCD_Init</STRONG> (Thumb, 414 bytes, Stack size 8 bytes, lcd.o(i.LCD_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LCD_Init
+<P><STRONG><a name="[65]"></a>LCD_Init_1</STRONG> (Thumb, 418 bytes, Stack size 8 bytes, lcd.o(i.LCD_Init_1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = LCD_Init_1 &rArr; LCD_GPIO_Init_1 &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriData
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriCommand
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriData_1
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriCommand_1
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init_1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -516,7 +518,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
 <P><STRONG><a name="[60]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init
+<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init_1
 </UL>
 
 <P><STRONG><a name="[9]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SVC_Handler))
@@ -561,13 +563,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[6e]"></a>address</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, lcd.o(i.address))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = address
+<P><STRONG><a name="[6e]"></a>address_1</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, lcd.o(i.address_1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = address_1
 </UL>
-<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriData
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriCommand
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriData_1
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriCommand_1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_test
+<BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_test_1
 </UL>
 
 <P><STRONG><a name="[6f]"></a>delay_init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, delay.o(i.delay_init))
@@ -579,25 +581,25 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[66]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
-<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init_1
 </UL>
 
-<P><STRONG><a name="[71]"></a>display_test</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, lcd.o(i.display_test))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = display_test &rArr; WriteDAT
+<P><STRONG><a name="[71]"></a>display_test_1</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, lcd.o(i.display_test_1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = display_test_1 &rArr; WriteDAT_1
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;address
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteDAT
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;address_1
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteDAT_1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[57]"></a>main</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = main &rArr; display_test &rArr; WriteDAT
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = main &rArr; LCD_Init_1 &rArr; LCD_GPIO_Init_1 &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_test
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_test_1
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init_1
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Init_1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -619,23 +621,23 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
 
-<P><STRONG><a name="[67]"></a>LcdWriCommand</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, lcd.o(i.LcdWriCommand))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;address
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<P><STRONG><a name="[67]"></a>LcdWriCommand_1</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, lcd.o(i.LcdWriCommand_1))
+<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;address_1
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init_1
 </UL>
 
-<P><STRONG><a name="[68]"></a>LcdWriData</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, lcd.o(i.LcdWriData))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;address
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteDAT
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<P><STRONG><a name="[68]"></a>LcdWriData_1</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, lcd.o(i.LcdWriData_1))
+<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;address_1
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteDAT_1
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init_1
 </UL>
 
-<P><STRONG><a name="[6d]"></a>WriteDAT</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, lcd.o(i.WriteDAT))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = WriteDAT
+<P><STRONG><a name="[6d]"></a>WriteDAT_1</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, lcd.o(i.WriteDAT_1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = WriteDAT_1
 </UL>
-<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriData
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdWriData_1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_test
+<BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_test_1
 </UL>
 <P>
 <H3>

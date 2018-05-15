@@ -57,5 +57,6 @@ void display_rgb(unsigned int dat);
 void LCD_GPIO_Init(void);
 void display_test(void);
 void display_test_8(void);
+void ST7789_Init_24(void);
 #endif
 

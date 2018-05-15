@@ -1,5 +1,5 @@
 Dependencies for Project 'LCD', Target 'LCD': (DO NOT MODIFY !)
-F (.\main.c)(0x5ADD98B6)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5AE436D0)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (main.h)(0x5A5EFAAA)
 I (..\SYSTEM\sys\sys.h)(0x5A5FE26A)
 I (..\USER\stm32f0xx.h)(0x59E415F5)
@@ -33,9 +33,9 @@ I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
 I (..\SYSTEM\delay\delay.h)(0x59E80EBF)
-I (..\HARDWARE\LCD\lcd.h)(0x5A5FEAAB)
+I (..\HARDWARE\LCD\lcd.h)(0x5AE43309)
 I (..\HARDWARE\KEY\key.h)(0x5A5EFA10)
-F (.\stm32f0xx_it.c)(0x54809139)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\stm32f0xx_it.o --omf_browse ..\obj\stm32f0xx_it.crf --depend ..\obj\stm32f0xx_it.d)
+F (.\stm32f0xx_it.c)(0x54809139)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\stm32f0xx_it.o --omf_browse ..\obj\stm32f0xx_it.crf --depend ..\obj\stm32f0xx_it.d)
 I (stm32f0xx_it.h)(0x54809128)
 I (main.h)(0x5A5EFAAA)
 I (..\SYSTEM\sys\sys.h)(0x5A5FE26A)
@@ -70,9 +70,9 @@ I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
 I (..\SYSTEM\delay\delay.h)(0x59E80EBF)
-I (..\HARDWARE\LCD\lcd.h)(0x5A5FEAAB)
+I (..\HARDWARE\LCD\lcd.h)(0x5AE43309)
 I (..\HARDWARE\KEY\key.h)(0x5A5EFA10)
-F (.\system_stm32f0xx.c)(0x5A6017CE)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\system_stm32f0xx.o --omf_browse ..\obj\system_stm32f0xx.crf --depend ..\obj\system_stm32f0xx.d)
+F (.\system_stm32f0xx.c)(0x5A6017CE)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\system_stm32f0xx.o --omf_browse ..\obj\system_stm32f0xx.crf --depend ..\obj\system_stm32f0xx.d)
 I (stm32f0xx.h)(0x59E415F5)
 I (..\CORE\core_cm0.h)(0x547D9682)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -104,8 +104,8 @@ I (..\FWLIB\inc\stm32f0xx_tim.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
-F (..\CORE\startup_stm32f030.s)(0x54808D0E)(--cpu Cortex-M0 -g --apcs=interwork -I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0--pd "__UVISION_VERSION SETA 515" --pd "STM32F030x6 SETA 1"--list .\listings\startup_stm32f030.lst --xref -o ..\obj\startup_stm32f030.o --depend ..\obj\startup_stm32f030.d)
-F (..\FWLIB\src\stm32f0xx_gpio.c)(0x54808D13)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\stm32f0xx_gpio.o --omf_browse ..\obj\stm32f0xx_gpio.crf --depend ..\obj\stm32f0xx_gpio.d)
+F (..\CORE\startup_stm32f030.s)(0x54808D0E)(--cpu Cortex-M0 -g --apcs=interwork -I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0--pd "__UVISION_VERSION SETA 515" --pd "STM32F030x6 SETA 1"--list .\listings\startup_stm32f030.lst --xref -o ..\obj\startup_stm32f030.o --depend ..\obj\startup_stm32f030.d)
+F (..\FWLIB\src\stm32f0xx_gpio.c)(0x54808D13)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\stm32f0xx_gpio.o --omf_browse ..\obj\stm32f0xx_gpio.crf --depend ..\obj\stm32f0xx_gpio.d)
 I (..\FWLIB\inc\stm32f0xx_gpio.h)(0x54808D11)
 I (..\USER\stm32f0xx.h)(0x59E415F5)
 I (..\CORE\core_cm0.h)(0x547D9682)
@@ -136,7 +136,7 @@ I (..\FWLIB\inc\stm32f0xx_tim.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
-F (..\FWLIB\src\stm32f0xx_rcc.c)(0x54808D13)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\stm32f0xx_rcc.o --omf_browse ..\obj\stm32f0xx_rcc.crf --depend ..\obj\stm32f0xx_rcc.d)
+F (..\FWLIB\src\stm32f0xx_rcc.c)(0x54808D13)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\stm32f0xx_rcc.o --omf_browse ..\obj\stm32f0xx_rcc.crf --depend ..\obj\stm32f0xx_rcc.d)
 I (..\FWLIB\inc\stm32f0xx_rcc.h)(0x54808D11)
 I (..\USER\stm32f0xx.h)(0x59E415F5)
 I (..\CORE\core_cm0.h)(0x547D9682)
@@ -167,7 +167,7 @@ I (..\FWLIB\inc\stm32f0xx_tim.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
-F (..\FWLIB\src\stm32f0xx_misc.c)(0x54808D13)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\stm32f0xx_misc.o --omf_browse ..\obj\stm32f0xx_misc.crf --depend ..\obj\stm32f0xx_misc.d)
+F (..\FWLIB\src\stm32f0xx_misc.c)(0x54808D13)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\stm32f0xx_misc.o --omf_browse ..\obj\stm32f0xx_misc.crf --depend ..\obj\stm32f0xx_misc.d)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
 I (..\USER\stm32f0xx.h)(0x59E415F5)
 I (..\CORE\core_cm0.h)(0x547D9682)
@@ -198,7 +198,7 @@ I (..\FWLIB\inc\stm32f0xx_spi.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_tim.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
-F (..\SYSTEM\delay\delay.c)(0x59E80EC0)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
+F (..\SYSTEM\delay\delay.c)(0x59E80EC0)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x59E80EBF)
 I (..\SYSTEM\sys\sys.h)(0x5A5FE26A)
 I (..\USER\stm32f0xx.h)(0x59E415F5)
@@ -231,7 +231,7 @@ I (..\FWLIB\inc\stm32f0xx_tim.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
-F (..\SYSTEM\sys\sys.c)(0x59E4167C)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
+F (..\SYSTEM\sys\sys.c)(0x59E4167C)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
 I (..\SYSTEM\sys\sys.h)(0x5A5FE26A)
 I (..\USER\stm32f0xx.h)(0x59E415F5)
 I (..\CORE\core_cm0.h)(0x547D9682)
@@ -264,8 +264,8 @@ I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
 I (..\SYSTEM\delay\delay.h)(0x59E80EBF)
-F (..\HARDWARE\LCD\lcd.c)(0x5ADD98B6)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\lcd.o --omf_browse ..\obj\lcd.crf --depend ..\obj\lcd.d)
-I (..\HARDWARE\LCD\lcd.h)(0x5A5FEAAB)
+F (..\HARDWARE\LCD\lcd.c)(0x5AE4331C)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\lcd.o --omf_browse ..\obj\lcd.crf --depend ..\obj\lcd.d)
+I (..\HARDWARE\LCD\lcd.h)(0x5AE43309)
 I (..\SYSTEM\sys\sys.h)(0x5A5FE26A)
 I (..\USER\stm32f0xx.h)(0x59E415F5)
 I (..\CORE\core_cm0.h)(0x547D9682)
@@ -298,7 +298,7 @@ I (..\FWLIB\inc\stm32f0xx_usart.h)(0x54808D11)
 I (..\FWLIB\inc\stm32f0xx_wwdg.h)(0x54808D10)
 I (..\FWLIB\inc\stm32f0xx_misc.h)(0x54808D10)
 I (..\SYSTEM\delay\delay.h)(0x59E80EBF)
-F (..\HARDWARE\KEY\key.c)(0x5A5EFA10)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I E:\STM32F0开发\LCD新\LCD\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
+F (..\HARDWARE\KEY\key.c)(0x5A5EFA10)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LCD -I..\HARDWARE\KEY-I D:\GitHub\LCD_Drive\F0系列\LCD-HK600\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0-D__UVISION_VERSION="515" -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030 -DUSE_DEFAULT_TIMEOUT_CALLBACK-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
 I (..\HARDWARE\KEY\key.h)(0x5A5EFA10)
 I (..\SYSTEM\sys\sys.h)(0x5A5FE26A)
 I (..\USER\stm32f0xx.h)(0x59E415F5)

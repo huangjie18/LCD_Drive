@@ -13,10 +13,9 @@ int main(void)
 //	LCD_Clear();
 	
 	//IC4551
-	SLEEPEXIT();
-	Lcd_Initialize_4551();
-	address();
-	LCD_Clear();
+	Lcd_Initialize_5420();
+	LCD_Clear_5420();
+	
 	while(1)
 	{
 	}

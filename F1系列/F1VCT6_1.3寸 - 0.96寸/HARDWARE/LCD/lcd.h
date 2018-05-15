@@ -50,9 +50,20 @@ PC4   -     VCC
 #define SCL_0  PBout(14)
 #define VCC_0  PCout(4)
 
-
+#define LEDK_1      PBout(7)
+#define LEDA_1      PBout(6)
+#define GND_1       PBout(5)
+#define VCC_1       PBout(4)
+#define IOVCC_1     PBout(3)
+#define CS_1        PBout(2)
+#define RES_1       PBout(1)
+#define SCL_1       PBout(0)
+#define SDA_1       PDout(7)
+#define RS_1        PDout(5)
+#define DC_1        RS_1
 
 void LCD_Init(void);//初始化1.3寸屏，ST7789V驱动
+void LCD_Init_1(void);
 void LCD_GPIO_Init(void); //LCD接口初始化
 void LCD_WR_REG_DATA(int reg,int da);
 void LCD_WR_REG(int reg);
@@ -71,4 +82,5 @@ void display_test(void);//测试程序
 void LCD_GPIOInit_0(void); //引脚初始化，ST7735S驱动
 void LCD_Init_0(void); //0.96寸屏
 void display_rgb(void); //显示三色
+void display_test_1(void);
 #endif

@@ -32,20 +32,20 @@ RD        GND       PD4
 #define  orange    0xfc08
 #define  gray      0x8400  //RGB各50%
 
-#define LEDK      PBout(7)
-#define LEDA      PBout(6)
-#define GND       PBout(5)
-#define VCC       PBout(4)
-#define IOVCC     PBout(3)
-#define CS        PBout(2)
-#define RES       PBout(1)
-#define SCL       PBout(0)
-#define SDA       PDout(7)
-#define RS        PDout(5)
-#define DC        RS
+#define LEDK_1      PBout(7)
+#define LEDA_1      PBout(6)
+#define GND_1       PBout(5)
+#define VCC_1       PBout(4)
+#define IOVCC_1     PBout(3)
+#define CS_1        PBout(2)
+#define RES_1       PBout(1)
+#define SCL_1       PBout(0)
+#define SDA_1       PDout(7)
+#define RS_1        PDout(5)
+#define DC_1        RS_1
 
-void LCD_Init(void);//初始化
-void LCD_GPIO_Init(void); //LCD接口初始化
+void LCD_Init_1(void);//初始化
+void LCD_GPIO_Init_1(void); //LCD接口初始化
 void LCD_WR_REG_DATA(int reg,int da);
 void LCD_WR_REG(int reg);
 void LCD_WR_DATA(int da);
@@ -58,5 +58,5 @@ void Lcd_Initialize_4551(void);
 void address(void);
 void SLEEPEXIT(void);
 void SLEEPON(void);
-void display_test(void); //测试程序
+void display_test_1(void); //测试程序
 #endif

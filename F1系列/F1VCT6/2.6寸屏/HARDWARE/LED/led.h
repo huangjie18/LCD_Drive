@@ -75,6 +75,8 @@ void LCD_Clear(void);
 
 //IC4551±ØÐëÒªµÄ
 void Lcd_Initialize_4551(void);
+void Lcd_Initialize_5420(void);
+void LCD_Clear_5420(void);
 void address(void);
 void SLEEPEXIT(void);
 void SLEEPON(void);
