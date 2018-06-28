@@ -491,23 +491,32 @@ void LCD_Clear_5420(void)
 	{
 		for (j = 0; j < 240; j++)
 		{
-			LCD_WR_DATA(RED);
+			LCD_WR_DATA(GREEN);
 		}
 	}
+	
+	LCD_WriteReg(0x0210, 0x0000);	//X_Start);	//x start
+	LCD_WriteReg(0x0211, 0x0020);	//X_End);		//x end
+	LCD_WriteReg(0x0212, 0x0000);	//Y_Start);	//y start
+	LCD_WriteReg(0x0213, 0x0080);	//Y_End);		//y end
+	LCD_WriteReg(0x0201, 0x0000);	//Y_Start);	//y addres
+	LCD_WriteReg(0x0200, 0x0000);	//X_Start);	//x addres
+
+	LCD_WR_REG(0x0202);
 	for (i = 0; i < 133; i++)
 	{
 		for (j = 0; j < 240; j++)
 		{
-			LCD_WR_DATA(GREEN);
+			LCD_WR_DATA(RED);
 		}
 	}
-	for (i = 0; i < 134; i++)
-	{
-		for (j = 0; j < 240; j++)
-		{
-			LCD_WR_DATA(BLUE);
-		}
-	}
+//	for (i = 0; i < 134; i++)
+//	{
+//		for (j = 0; j < 240; j++)
+//		{
+//			LCD_WR_DATA(BLUE);
+//		}
+//	}
 }
 
 

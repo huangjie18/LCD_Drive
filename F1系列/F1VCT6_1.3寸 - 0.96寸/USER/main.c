@@ -14,9 +14,9 @@ int main(void)
 //	LCD_Clear();
 	
 	//1.3寸屏
-	LCD_Init(); //要初始化两次
-	LCD_Init();
-	display_test(); //显示测试函数
+//	LCD_Init(); //要初始化两次
+//	LCD_Init();
+//	display_test(); //显示测试函数
 
 	//华显
 //	LCD_Init_1();
@@ -25,8 +25,9 @@ int main(void)
 	
 	
 	//0.96寸屏
-//	LCD_Init_0();
-//	display_rgb();
+	LCD_Init_0();
+	LCD_Init_0();
+	display_rgb();
 	
 	while(1)
 	{

@@ -1,0 +1,27 @@
+--cpu Cortex-M4.fp
+"lcd-f4\startup_stm32f407xx.o"
+"lcd-f4\stm32f4xx_hal.o"
+"lcd-f4\stm32f4xx_hal_gpio.o"
+"lcd-f4\stm32f4xx_hal_tim_ex.o"
+"lcd-f4\stm32f4xx_hal_rcc_ex.o"
+"lcd-f4\stm32f4xx_hal_pwr_ex.o"
+"lcd-f4\stm32f4xx_hal_dma_ex.o"
+"lcd-f4\stm32f4xx_hal_cortex.o"
+"lcd-f4\stm32f4xx_hal_tim.o"
+"lcd-f4\stm32f4xx_hal_pwr.o"
+"lcd-f4\stm32f4xx_hal_flash.o"
+"lcd-f4\stm32f4xx_hal_dma.o"
+"lcd-f4\stm32f4xx_hal_rcc.o"
+"lcd-f4\stm32f4xx_hal_flash_ramfunc.o"
+"lcd-f4\stm32f4xx_hal_flash_ex.o"
+"lcd-f4\main.o"
+"lcd-f4\stm32f4xx_hal_msp.o"
+"lcd-f4\stm32f4xx_it.o"
+"lcd-f4\system_stm32f4xx.o"
+"lcd-f4\delay.o"
+"lcd-f4\sys.o"
+"lcd-f4\led_1.o"
+--library_type=microlib --strict --scatter "LCD-F4\LCD-F4.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "LCD-F4.map" -o LCD-F4\LCD-F4.axf
